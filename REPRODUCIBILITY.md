@@ -111,7 +111,9 @@ no new GPU masks, reconstruction metrics, memory measurements, or timings are
 claimed. CPU/device/version equivalence must not be inferred from the smoke
 checks. The full original face architecture-directory identity remains
 unverified beyond the recorded manifest hash and successful model loading.
-Public checkpoint hosting remains outstanding.
+The maintainer-provided Google Drive folder is linked in `CHECKPOINTS.md`.
+All four local Drive copies match the recorded hashes; anonymous cloud access
+and downloads have not yet been independently verified.
 
 Full acquisition timing excludes setup and final reconstruction and subtracts
 CM diagnostics. Paper timing uses medians on A100-SXM4 at 10% (9 faces, 24 MRI

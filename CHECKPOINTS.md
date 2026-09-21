@@ -4,16 +4,20 @@ The runner checks checkpoint **file** SHA-256 before loading. It never substitut
 an undistilled DDPM for a missing CM. Put weights in the ignored `checkpoints/`
 directory or pass another local path. These files are not in Git.
 
+[Checkpoint folder on Google Drive](https://drive.google.com/drive/folders/1q_Hop4FCYnTJLEMBuSYFL6_cPjVjTo3p)
+is the maintainer-provided download location. Anonymous access and cloud-download
+integrity have not yet been independently verified. Download the four files and
+`SHA256SUMS` into `checkpoints/`, retaining the filenames below.
+
 | Input | SHA-256 |
 |---|---|
-| Face CM (`ema_step10000.pt`) | `2fcab89eb72c87d8063c72881b824c13f86296d7a89a2a1f3d7d4b94e089dd98` |
-| Face teacher state dictionary | `7feaf1992a34be4b17d41e6d90185876e8fddc58bdd2409c619a0b45b79890e9` |
-| MRI CM | `e295911e6a19c5ad93ee5e8380e7e8002b67648356e3569ee2de108e2f8ec9e0` |
+| Face CM (`face_cm.pt`, originally `ema_step10000.pt`) | `2fcab89eb72c87d8063c72881b824c13f86296d7a89a2a1f3d7d4b94e089dd98` |
+| Face teacher (`face_teacher.pt`) | `7feaf1992a34be4b17d41e6d90185876e8fddc58bdd2409c619a0b45b79890e9` |
+| MRI CM (`mri_cm.pt`) | `e295911e6a19c5ad93ee5e8380e7e8002b67648356e3569ee2de108e2f8ec9e0` |
 | MRI teacher (`fmri.ckpt`) | `eec7efcb0dcad569b819c9f4d2cf311f11f7f8e5be9af50c6d002a0f2c55e1f4` |
 
-**CM distribution is unresolved.** Obtain these exact trained student files from
-the maintainer. No public URL is verified. Re-running distillation is not claimed
-to recreate these files: checkpoint-specific training identities and complete
+Re-running distillation is not claimed to recreate these files:
+checkpoint-specific training identities and complete
 training provenance were not recorded. Training scripts with guessed settings
 are intentionally not offered as exact reproduction.
 
@@ -23,7 +27,7 @@ The recorded `architecture_revision=c6a0e54d1d23` is a manifest-hash prefix, **n
 verified Hugging Face commit**. Its `model_index.json` must hash to
 `c6a0e54d1d235280bce7e40abae49b73c4de0011ddbf09d817ce39e848cc2fa7`.
 The original run then loaded explicit teacher/student state dictionaries into
-the same architecture. Obtain the bound teacher dictionary from the maintainer;
+the same architecture. Use the bound teacher dictionary from the checkpoint folder;
 re-serializing equivalent tensors can change a file hash.
 
 The MRI teacher is linked from the [AdaSense pretrained-model instructions](https://github.com/noamelata/AdaSense#pretrained-models).
@@ -32,8 +36,9 @@ for `build_mri_unet()` (keys under `model.`); the teacher uses the underlying
 network keys, optionally prefixed with `module.` or nested under `state_dict`.
 
 ```sh
-shasum -a 256 checkpoints/face_cm.pt checkpoints/face_teacher.pt
-shasum -a 256 checkpoints/mri_cm.pt checkpoints/fmri.ckpt
+cd checkpoints
+shasum -a 256 -c SHA256SUMS
+cd ..
 ```
 
 The local face CM file matches the expected hash. A local Hugging Face cache
@@ -51,8 +56,8 @@ The exact face teacher and both MRI checkpoints were recovered from the cluster
 and independently verified locally against the hashes above. All four files are
 now staged under the ignored `checkpoints/` directory using the names in the
 README, with `checkpoints/SHA256SUMS`. The downloaded archives and backup copies
-remain under ignored `results/recovery/`. These local files are not Git assets
-and no public checkpoint download links have yet been established.
+remain under ignored `results/recovery/`. The four copies in the local Google
+Drive sync folder also match these hashes. Checkpoints are not Git assets.
 
 CPU smoke runs with the verified weights completed five K=1 CAFS sensing rounds
 and the paper's final reconstructor for each dataset. These validate execution;

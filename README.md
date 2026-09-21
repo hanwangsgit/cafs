@@ -13,8 +13,10 @@ recovered. Their aggregates reproduce every published table entry at its stated
 precision, and trained-model CPU smoke runs complete for both datasets.
 Release validation uses these archived results and completed CPU checks.
 The extracted package has not been rerun on CUDA; see [verification details](REPRODUCIBILITY.md).
-Exact CM checkpoints must be supplied separately; public download links are not
-yet available. Original CAFS code is [MIT licensed](LICENSE); third-party terms
+Checkpoints are provided separately through the
+[Google Drive folder](https://drive.google.com/drive/folders/1q_Hop4FCYnTJLEMBuSYFL6_cPjVjTo3p);
+anonymous download access is not yet verified. Original CAFS code is
+[MIT licensed](LICENSE); third-party terms
 and remaining provenance questions are documented in [THIRD_PARTY.md](THIRD_PARTY.md).
 
 ## Setup
