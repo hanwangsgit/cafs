@@ -1,0 +1,9 @@
+# CPU verification environment; the original GPU runs used torch 2.5.1+cu121.
+# See REPRODUCIBILITY.md before comparing GPU numbers.
+torch==2.11.0
+torchvision==0.26.0
+numpy==2.2.6
+diffusers==0.37.1
+datasets==4.8.4
+h5py==3.16.0
+Pillow==12.2.0

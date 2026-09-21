@@ -1,0 +1,103 @@
+{
+  "domain": "face",
+  "budgets": [
+    0.05,
+    0.1,
+    0.25
+  ],
+  "seed": 0,
+  "rounds": 5,
+  "policies": [
+    "uniform",
+    "variable_density",
+    "cm_spectral_once_k1",
+    "cm_spectral_repeat_k1",
+    "cm_spectral_repeat_k5",
+    "cm_spectral_repeat_k10",
+    "adasense_matched",
+    "ads_matched"
+  ],
+  "acquisition": {
+    "t_start": 800,
+    "t_end": 50,
+    "zeta": 1.0,
+    "clamp": [
+      -1.0,
+      1.0
+    ]
+  },
+  "final_reconstructor": "ddrm",
+  "final_settings": {
+    "average": 1,
+    "clamp": [
+      -1.0,
+      1.0
+    ],
+    "samples": 1,
+    "steps": 20,
+    "t_start": 999,
+    "zeta": 1.0
+  },
+  "matched_baselines": {
+    "adasense": {
+      "deviations": [
+        "Selection-only port: AdaSense's own final DDRM estimate is discarded and every mask is reconstructed by this experiment's two common reconstructors.",
+        "Acquisition happens on the shared five-round cadence with exact-cost conjugate-orbit groups rather than AdaSense's own schedule and action space.",
+        "Settings are transcribed from the pinned upstream configs/celeba_hq.yml; the upstream code is not executed."
+      ],
+      "label": "AdaSense matched",
+      "settings": {
+        "ddrm_steps": 25,
+        "samples": 8
+      },
+      "source_commit": "45f9f96600570f745b3b5f8c32dbecccef8f9af0",
+      "source_config_path": "configs/celeba_hq.yml",
+      "source_config_sha256": "1a2434e218743f11c59fcee60623b733d8152592be6af4bfad0bcda6e295faba",
+      "source_domain": "face",
+      "status": "frozen"
+    },
+    "ads": {
+      "deviations": [
+        "There is no official CelebA entropy benchmark: the settings are the exact official fastMRI ADS configuration transposed to faces, which is an adaptation and not the published face method.",
+        "Selection-only port: the ADS diffusion suffix after the last acquisition event and its particle-mean reconstruction are discarded.",
+        "Acquisition happens on the shared five-round cadence with exact-cost conjugate-orbit groups rather than ADS's own schedule and action space.",
+        "The 10,000-step schedule is truncated onto the 1,000 trained timestep embeddings of this discrete-time prior; upstream's continuous cosine schedule cannot be reproduced exactly."
+      ],
+      "label": "ADS matched adaptation",
+      "nondeterminism": "ADS backpropagates through the prior; its backward passes are not bit-reproducible, so ads_matched is the one arm whose masks may differ between identical re-runs.",
+      "settings": {
+        "aggregation": "whole_action_before_kernel",
+        "controlled_adaptation": "nonofficial_face_entropy_adaptation",
+        "entropy_sign": "positive",
+        "guidance": 0.85,
+        "hard_consistency": true,
+        "n_particles": 16,
+        "n_steps": 10000,
+        "sigma": 50.0,
+        "window": [
+          0.005,
+          0.25
+        ]
+      },
+      "source_commit": "64f2889b192cee2280ec7bf1405752b81ec02bc1",
+      "source_config_path": "configs/benchmark/fastmri/fastmri_ads_10k.yaml",
+      "source_config_sha256": "e5213542827f2a87c683a5daac13cc198fef428af256bd4131fbba7690843b7c",
+      "source_domain": "mri",
+      "status": "frozen"
+    }
+  },
+  "checkpoints": {
+    "student": "2fcab89eb72c87d8063c72881b824c13f86296d7a89a2a1f3d7d4b94e089dd98",
+    "teacher": "7feaf1992a34be4b17d41e6d90185876e8fddc58bdd2409c619a0b45b79890e9"
+  },
+  "architecture": {
+    "id": "google/ddpm-celebahq-256",
+    "revision": "c6a0e54d1d23",
+    "manifest_sha256": "c6a0e54d1d235280bce7e40abae49b73c4de0011ddbf09d817ce39e848cc2fa7"
+  },
+  "dataset": {
+    "dataset_id": "PhilSad/celeba-hq-1.5k",
+    "revision": "a18e1cc5a351bce68739722bad0efa2c842bbc10",
+    "preprocessing": "resize-256-rgb-minus1-plus1"
+  }
+}
