@@ -111,14 +111,14 @@ independently verified. These data are not claimed to be an untouched test set.
 
 ## Local release state
 
-The intended public destination is `hanwangsgit/cafs`. Publishing has not occurred.
-MIT is proposed for original code; confirm it and the third-party provenance in
-`THIRD_PARTY.md` before treating this candidate as an open-source release.
+The GitHub remote is `hanwangsgit/cafs`, and the initial release candidate has
+been pushed. Original CAFS code is licensed under MIT in `LICENSE`; third-party
+terms and remaining provenance questions are documented in `THIRD_PARTY.md`.
 The manuscript still has placeholder authors, so this extraction does not invent
 a final paper author list or bibliographic acceptance claim.
 
 The repository uses a fresh `main` history containing only the release files.
 The research repository history is not imported.
 
-Publish only after activating the chosen license and resolving the asset and
-provenance gaps appropriate to the release claim. No remote has been configured.
+Resolve the asset and provenance gaps appropriate to the release claim before
+making the repository public.

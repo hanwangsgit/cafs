@@ -12,7 +12,8 @@ matched AdaSense/ADS selectors, and the paper's fixed sampling baselines.
 Full GPU results are not reverified. The original MRI launch package and full
 result archives were unavailable; see [verification details](REPRODUCIBILITY.md).
 Exact CM checkpoints must be supplied separately; public download links are not
-yet available. License approval is pending ([attribution](THIRD_PARTY.md)).
+yet available. Original CAFS code is [MIT licensed](LICENSE); third-party terms
+and remaining provenance questions are documented in [THIRD_PARTY.md](THIRD_PARTY.md).
 
 ## Setup
 

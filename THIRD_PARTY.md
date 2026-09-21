@@ -26,6 +26,7 @@ A standalone license was not found on the inspected AdaSense repository page;
 fetching its pinned `LICENSE` and the ADS pinned `LICENSE` did not succeed.
 The DDIM MIT notice covers its upstream architecture, but is not a blanket
 license for other authors' modifications. Confirm the provenance/redistribution
-rights of any AdaSense-derived changes before publishing. Original CAFS code has
-an MIT **proposal**, not an activated license, in `LICENSES/PROPOSED-MIT.txt`.
+rights of any AdaSense-derived changes before publishing. Original CAFS code is
+licensed under the [MIT License](LICENSE). Third-party material retains its own
+copyright and license terms; the CAFS license does not relicense that material.
 No datasets or checkpoint files are distributed here.
