@@ -11,7 +11,8 @@ matched AdaSense/ADS selectors, and the paper's fixed sampling baselines.
 **Release candidate:** the original source and all 180 result records have been
 recovered. Their aggregates reproduce every published table entry at its stated
 precision, and trained-model CPU smoke runs complete for both datasets.
-A full CUDA rerun remains unverified; see [verification details](REPRODUCIBILITY.md).
+Release validation uses these archived results and completed CPU checks.
+The extracted package has not been rerun on CUDA; see [verification details](REPRODUCIBILITY.md).
 Exact CM checkpoints must be supplied separately; public download links are not
 yet available. Original CAFS code is [MIT licensed](LICENSE); third-party terms
 and remaining provenance questions are documented in [THIRD_PARTY.md](THIRD_PARTY.md).

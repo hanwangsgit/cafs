@@ -104,14 +104,14 @@ All 30 face source-file hashes and all 30 MRI source-file/tensor hashes have bee
 restored from the original bindings. The loaders enforce these identities.
 Face exports also carry the pinned dataset revision and their per-file manifest.
 
-The tables were recomputed from archived GPU records, not newly run GPU
-experiments. There is no local CUDA device or complete original dataset for a
-full rerun. The full original face architecture-directory identity remains
+Release validation uses the archived GPU records, source comparisons, checkpoint
+hashes, and completed CPU checks described above. No further experiment runs are
+planned for this release. The extracted package has not been rerun on CUDA, so
+no new GPU masks, reconstruction metrics, memory measurements, or timings are
+claimed. CPU/device/version equivalence must not be inferred from the smoke
+checks. The full original face architecture-directory identity remains
 unverified beyond the recorded manifest hash and successful model loading.
-CUDA masks, newly measured PSNR/SSIM, peak memory and elapsed time remain
-unverified. CPU/device/version equivalence must not be inferred from the smoke
-checks. Public checkpoint hosting and a fresh dependency installation remain
-outstanding.
+Public checkpoint hosting remains outstanding.
 
 Full acquisition timing excludes setup and final reconstruction and subtracts
 CM diagnostics. Paper timing uses medians on A100-SXM4 at 10% (9 faces, 24 MRI
@@ -139,5 +139,6 @@ a final paper author list or bibliographic acceptance claim.
 The repository uses a fresh `main` history containing only the release files.
 The research repository history is not imported.
 
-Resolve the asset and provenance gaps appropriate to the release claim before
-making the repository public.
+Remaining release tasks concern checkpoint access and third-party redistribution
+terms. A new experiment run is not a release requirement; the verification scope
+and limitations above remain part of the release documentation.
