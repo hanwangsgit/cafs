@@ -19,8 +19,9 @@
   prediction–projection–renoising implementation, based on
   [DDRM](https://github.com/bahjat-kawar/ddrm) (Kawar et al., 2022).
 - **Face prior**: [google/ddpm-celebahq-256](https://huggingface.co/google/ddpm-celebahq-256),
-  loaded through Hugging Face Diffusers. Model and dataset terms remain separate
-  from this repository's source-code license.
+  loaded through Hugging Face Diffusers. Its model card declares Apache-2.0.
+  The license text is retained in `LICENSES/Apache-2.0.txt`; checkpoint origins
+  and modifications are recorded in `CHECKPOINT_NOTICE.md`.
 
 A standalone license was not found on the inspected AdaSense repository page;
 fetching its pinned `LICENSE` and the ADS pinned `LICENSE` did not succeed.
@@ -29,4 +30,8 @@ license for other authors' modifications. Confirm the provenance/redistribution
 rights of any AdaSense-derived changes before publishing. Original CAFS code is
 licensed under the [MIT License](LICENSE). Third-party material retains its own
 copyright and license terms; the CAFS license does not relicense that material.
-No datasets or checkpoint files are distributed here.
+The MRI teacher's README provides a download link but no checkpoint
+redistribution license was found. The MRI student is initialized from a copy
+of that teacher, so its redistribution terms also require clarification.
+See [checkpoint attribution and scope](CHECKPOINT_NOTICE.md). No datasets or
+checkpoint binaries are included in Git.

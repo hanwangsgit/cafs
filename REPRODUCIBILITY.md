@@ -113,7 +113,9 @@ checks. The full original face architecture-directory identity remains
 unverified beyond the recorded manifest hash and successful model loading.
 The maintainer-provided Google Drive folder is linked in `CHECKPOINTS.md`.
 All four local Drive copies match the recorded hashes; anonymous cloud access
-and downloads have not yet been independently verified.
+and downloads have not yet been independently verified. Face checkpoint license
+notices are prepared. MRI teacher and distilled-student redistribution permission
+remains unresolved; the mixed folder is not cleared for public distribution.
 
 Full acquisition timing excludes setup and final reconstruction and subtracts
 CM diagnostics. Paper timing uses medians on A100-SXM4 at 10% (9 faces, 24 MRI

@@ -5,9 +5,11 @@ an undistilled DDPM for a missing CM. Put weights in the ignored `checkpoints/`
 directory or pass another local path. These files are not in Git.
 
 [Checkpoint folder on Google Drive](https://drive.google.com/drive/folders/1q_Hop4FCYnTJLEMBuSYFL6_cPjVjTo3p)
-is the maintainer-provided download location. Anonymous access and cloud-download
-integrity have not yet been independently verified. Download the four files and
-`SHA256SUMS` into `checkpoints/`, retaining the filenames below.
+is the maintainer's staging location. Keep this mixed folder restricted until
+the MRI checkpoint redistribution terms are established; anonymous access and
+cloud-download integrity have not been verified. Authorized downloads should
+retain the filenames below and `SHA256SUMS` in `checkpoints/`.
+The face files require the accompanying [license and attribution notice](CHECKPOINT_NOTICE.md).
 
 | Input | SHA-256 |
 |---|---|
@@ -30,7 +32,9 @@ The original run then loaded explicit teacher/student state dictionaries into
 the same architecture. Use the bound teacher dictionary from the checkpoint folder;
 re-serializing equivalent tensors can change a file hash.
 
-The MRI teacher is linked from the [AdaSense pretrained-model instructions](https://github.com/noamelata/AdaSense#pretrained-models).
+Obtain the MRI teacher through the
+[official download](https://drive.google.com/file/d/1Vzu0ixfV2CDnEGlSQjmlCOuw2gS10Ync/view)
+linked by the [AdaSense pretrained-model instructions](https://github.com/noamelata/AdaSense#pretrained-models).
 Verify the downloaded file against the table above. The student is a state dict
 for `build_mri_unet()` (keys under `model.`); the teacher uses the underlying
 network keys, optionally prefixed with `module.` or nested under `state_dict`.
