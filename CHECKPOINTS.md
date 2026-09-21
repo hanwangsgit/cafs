@@ -36,7 +36,26 @@ shasum -a 256 checkpoints/face_cm.pt checkpoints/face_teacher.pt
 shasum -a 256 checkpoints/mri_cm.pt checkpoints/fmri.ckpt
 ```
 
-The local face CM file was checked against the expected hash during extraction.
-The other checkpoints and the bound face architecture were not available for
-local end-to-end verification. Keep upstream model and dataset terms when
-obtaining or redistributing any assets.
+The local face CM file matches the expected hash. A local Hugging Face cache
+snapshot named `cd5c944777ea2668051904ead6cc120739b86c4d` also has the expected
+architecture-manifest hash. Its pipeline loads offline, and the face CM state
+dictionary loads strictly with all keys matching under the tested environment.
+This verifies loading, not a trained-model reconstruction or the full original
+architecture-directory identity.
+
+The cached `diffusion_pytorch_model.bin` hashes to
+`efff89712093ad060ce99d9b461bbe542b49d8dd4ce30f23fe5761dca292361d`.
+It is not the bound face teacher file listed above; tensor equivalence has not
+been verified. Do not replace the required teacher hash with this candidate.
+The exact face teacher and both MRI checkpoints were recovered from the cluster
+and independently verified locally against the hashes above. All four files are
+now staged under the ignored `checkpoints/` directory using the names in the
+README, with `checkpoints/SHA256SUMS`. The downloaded archives and backup copies
+remain under ignored `results/recovery/`. These local files are not Git assets
+and no public checkpoint download links have yet been established.
+
+CPU smoke runs with the verified weights completed five K=1 CAFS sensing rounds
+and the paper's final reconstructor for each dataset. These validate execution;
+CPU RNGs and the local package versions do not reproduce the original CUDA run.
+
+Keep upstream model and dataset terms when obtaining or redistributing assets.

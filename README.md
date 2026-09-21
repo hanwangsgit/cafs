@@ -8,9 +8,10 @@ CAFS alternates a corrected few-step consistency-model estimate with Fourier
 energy ranking. This extraction includes CelebA-HQ and single-coil fastMRI,
 matched AdaSense/ADS selectors, and the paper's fixed sampling baselines.
 
-**Local release candidate:** core extraction and saved-record checks pass on CPU.
-Full GPU results are not reverified. The original MRI launch package and full
-result archives were unavailable; see [verification details](REPRODUCIBILITY.md).
+**Release candidate:** the original source and all 180 result records have been
+recovered. Their aggregates reproduce every published table entry at its stated
+precision, and trained-model CPU smoke runs complete for both datasets.
+A full CUDA rerun remains unverified; see [verification details](REPRODUCIBILITY.md).
 Exact CM checkpoints must be supplied separately; public download links are not
 yet available. Original CAFS code is [MIT licensed](LICENSE); third-party terms
 and remaining provenance questions are documented in [THIRD_PARTY.md](THIRD_PARTY.md).
@@ -61,6 +62,9 @@ For one CAFS example, append `--index 0 --budget 0.1 --policies cm_spectral_repe
 Use a new output directory for each invocation. Records include masks, reconstructions,
 metrics, per-round seeds, selection histories, NFEs, timing, and peak allocated memory.
 `reproduction/paper_metrics.csv` contains the manuscript's rounded table values.
+`reproduction/verified_tables.json` contains independently recomputed archive means
+and efficiency statistics. Recheck extracted original archives with
+`python verify_results.py results/recovery/face results/recovery/mri`.
 The favorable figure cases are face index **8** and MRI index **16**, both at 10%.
 
 Implementation: `cafs/reconstruction.py` predicts and corrects;

@@ -7,7 +7,7 @@ ICASSP 2027 draft, inspected on 2026-09-21. Its retained records point to resear
 commit `5dd9e6b2ee288f6f9bc8a60078f6d47877808a08`. Extraction reads that commit;
 it does not use the later research branch defaults or alter the research tree.
 
-`reproduction/source_map.json` maps 70 extracted definitions plus the MRI network
+`reproduction/source_map.json` maps 71 extracted definitions plus the MRI network
 file to their sources and hashes. Numerical definitions retain their source ASTs;
 imports are local to `cafs`. The new experiment driver removes cluster integration,
 DIP status machinery, unrelated experiments, and the unused second final
@@ -62,10 +62,24 @@ as in the original. Do not unify these dtypes or move their RNGs between devices
   metrics. All 11 comparisons were bit-exact using deterministic toy priors.
 - Tests exercise correction, timesteps, grouped budgets, all six adaptive arms,
   baseline NFE accounting, manifest cardinality, and summary aggregation.
-- All selector/final seeds, initial action IDs, and round costs match six unique
-  saved manuscript cases. Uniform and VD MRI histories match exactly for five
-  saved volumes. These are recorded in `reproduction/reference_cases.json`.
-- The local face student file SHA-256 matches its recorded checkpoint hash.
+- All selector/final seeds, initial actions, round costs, and reconstructed mask
+  hashes are checked across 180 original blocks (1,440 policy histories). All
+  180 MRI uniform/VD histories match the extracted static selectors exactly.
+  Six compact cases remain in `reproduction/reference_cases.json` for tests
+  without the downloaded archives.
+- All 42 quality rows and 14 efficiency rows reproduce manuscript rounding from
+  the original records. `reproduction/verified_tables.json` stores the recomputed
+  statistics; `verify_results.py` repeats the checks on extracted archives.
+- The original MRI runner, protocol, and eligibility file match their bound
+  package hash. Every MRI record agrees with the recovered binding and protocol.
+  The standalone wrapper has been reviewed against that recovered runner.
+- All four checkpoint files match their recorded SHA-256 values locally. The
+  face architecture manifest matches, and both domains' model pairs load.
+- Trained-model CPU smoke runs completed five K=1 sensing rounds plus 20-step
+  face DDRM or 10-step MRI CM at 10% sampling. MRI used its archived original
+  target tensor; the face smoke used the paper's exported ground-truth PNG,
+  not the bound original source PNG. These are execution checks, not GPU metric
+  reproductions or full raw-data-loader tests.
 - No datasets, trained weights, cluster configs, private notes, or source Git
   history are included. Numeric reference cases contain sampling histories and
   metrics only, without images or machine/user paths.
@@ -80,30 +94,35 @@ networked environment.
 
 ## Limits that remain
 
-The local result directories for jobs 2349848 (face) and 2514684 (MRI) contain
-empty directory trees. The custom MRI launch package/bindings are also absent.
-The MRI wrapper is reconstructed from the recorded config, saved histories and
-shared source routines; full original-run equivalence is **not verified**.
-The complete 180-block aggregate cannot be recomputed from the six saved cases.
-`paper_metrics.csv` transcribes the manuscript tables; it is not a new experiment.
+The recovered archives contain 90 complete face blocks and 90 complete MRI
+blocks, eight sensing policies and two final reconstructors per block. The
+original MRI launch package and both data manifests are available locally under
+ignored `results/recovery/`. The release keeps numerical summaries, identifiers,
+and hashes; it does not include raw archives or cluster launch infrastructure.
 
-All 30 face IDs and all 30 MRI volume/slice pairs are recovered from manuscript
-metadata. Original source-file hashes survive for only **2/30 faces** and
-**5/30 MRI volumes**. Available hashes are enforced. Face exports also carry a
-pinned dataset revision and a per-file manifest. Other original sample bytes
-cannot be checked against the missing manifests; runtime records explicitly
-report `paper_data_hash_verified` and the observed data hash. The saved MRI
-`target_sha256` values are retained as provenance, not used as an unverified
-cross-platform tensor-serialization check.
+All 30 face source-file hashes and all 30 MRI source-file/tensor hashes have been
+restored from the original bindings. The loaders enforce these identities.
+Face exports also carry the pinned dataset revision and their per-file manifest.
 
-There is no local CUDA device, complete dataset, MRI checkpoint pair, or bound
-face teacher/architecture for a full trained-model rerun. CUDA masks, PSNR/SSIM,
-peak memory and elapsed time remain unverified. CPU/device/version equivalence
-must not be inferred from the toy checks. Full acquisition timing excludes setup
-and final reconstruction and subtracts CM diagnostics. Paper timing uses medians
-on A100-SXM4 at 10% (9 faces, 24 MRI volumes); memory uses the maximum across all
-30 cases, three budgets and recorded GPUs. `summarize.py` reports the actual
-sample counts so an incomplete grid is visible.
+The tables were recomputed from archived GPU records, not newly run GPU
+experiments. There is no local CUDA device or complete original dataset for a
+full rerun. The full original face architecture-directory identity remains
+unverified beyond the recorded manifest hash and successful model loading.
+CUDA masks, newly measured PSNR/SSIM, peak memory and elapsed time remain
+unverified. CPU/device/version equivalence must not be inferred from the smoke
+checks. Public checkpoint hosting and a fresh dependency installation remain
+outstanding.
+
+Full acquisition timing excludes setup and final reconstruction and subtracts
+CM diagnostics. Paper timing uses medians on A100-SXM4 at 10% (9 faces, 24 MRI
+volumes); memory uses the maximum across all 30 cases, three budgets and
+recorded GPUs. `summarize.py` reports actual counts for new runs.
+
+To verify the recovered records locally:
+
+```sh
+python verify_results.py results/recovery/face results/recovery/mri
+```
 
 The face CM training/evaluation overlap is unresolved. MRI uses a previously
 accessed evaluation pool; checkpoint-specific training exclusions are not

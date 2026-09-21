@@ -21,6 +21,27 @@ class RecordChecks(unittest.TestCase):
                 digest=hashlib.sha256(ast.dump(node,include_attributes=False).encode()).hexdigest()
                 self.assertEqual(digest,entry['ast_sha256'],entry['symbol'])
 
+    def test_full_data_bindings(self):
+        for domain in ['face','mri']:
+            for unit in samples(domain):
+                self.assertEqual(len(unit['source_sha256']),64)
+                if domain=='mri':
+                    self.assertEqual(len(unit['target_sha256']),64)
+
+    def test_mri_target_identity_is_enforced(self):
+        import tempfile
+        import h5py
+        import numpy as np
+        from cafs.experiment import load_target, file_hash
+        with tempfile.TemporaryDirectory() as directory:
+            path=Path(directory)/'test.h5'
+            with h5py.File(path,'w') as data:
+                data['kspace']=np.ones((1,640,368),dtype=np.complex64)
+            unit={'unit_id':path.name,'slice_index':0,'source_sha256':file_hash(path),
+                  'target_sha256':'0'*64}
+            with self.assertRaisesRegex(ValueError,'MRI target tensor'):
+                load_target('mri',unit,Path(directory),'cpu')
+
     def test_saved_seeds_masks_and_static_mri(self):
         for domain in ['face','mri']:
             self.assertEqual(len(samples(domain)),30)

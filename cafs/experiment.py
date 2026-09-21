@@ -202,13 +202,14 @@ def load_models(config, student_path, teacher_path, architecture, device):
 
 def load_target(domain, unit, data_root, device):
     if domain == 'mri':
-        from .data import load_mri_slice_deterministic
+        from .data import load_mri_slice_deterministic, tensor_sha256
         path = data_root / unit['unit_id']
-        if 'source_sha256' in unit:
-            check_hash(path, unit['source_sha256'])
+        check_hash(path, unit['source_sha256'])
         target = load_mri_slice_deterministic(path, unit['slice_index'])
         if target.shape != (2,640,368):
             raise ValueError('Expected a 2 x 640 x 368 single-coil MRI slice')
+        if tensor_sha256(target.unsqueeze(0)) != unit['target_sha256']:
+            raise ValueError('MRI target tensor SHA-256 differs from the paper binding')
     else:
         from PIL import Image
         import torchvision.transforms as T
@@ -222,6 +223,5 @@ def load_target(domain, unit, data_root, device):
             raise ValueError('Face export dataset revision/preprocessing differs')
         row = next(r for r in manifest['units'] if r['unit_id'] == unit['unit_id'])
         check_hash(path, row['sha256'])
-        if 'source_sha256' in unit:
-            check_hash(path, unit['source_sha256'])
+        check_hash(path, unit['source_sha256'])
     return target.unsqueeze(0).to(device)

@@ -1,3 +1,5 @@
+import hashlib
+import json
 import torch
 MRI_KSPACE_NORM = 7.072103529760345e-07
 MRI_NORMALIZING_FACTOR = 0.3040714
@@ -43,3 +45,15 @@ def load_mri_slice_deterministic(path, slice_index: int) -> torch.Tensor:
             raise ValueError(f"fastMRI volume has no kspace: {path}")
         kspace = data["kspace"][int(slice_index)]
     return mri_target_from_kspace(kspace)
+
+
+def tensor_sha256(tensor: torch.Tensor) -> str:
+    """Hash tensor dtype, shape, and exact contiguous CPU bytes."""
+    value = tensor.detach().cpu().contiguous()
+    header = json.dumps(
+        {"dtype": str(value.dtype), "shape": list(value.shape)},
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8") + b"\n"
+    raw = value.view(torch.uint8).numpy().tobytes(order="C")
+    return hashlib.sha256(header + raw).hexdigest()

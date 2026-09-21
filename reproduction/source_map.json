@@ -495,6 +495,13 @@
       "file": "mri_prior.py",
       "source": "mri_prior.py",
       "file_sha256": "5e8679332895ecbff3898c3145e48d044bfccbecd8a40c06096cdbc6939101aa"
+    },
+    {
+      "file": "data.py",
+      "symbol": "tensor_sha256",
+      "source": "publication_v2/data.py",
+      "source_sha256": "d5b5b177268485fd56ac46a59ee022f37e031ecc568f5507e16a52155310cd07",
+      "ast_sha256": "cb80f44684e8f6aaff3d5197799d583c36c8c905c189509b465dac0d7e68593c"
     }
   ]
 }

@@ -1,0 +1,486 @@
+{
+  "blocks": {
+    "face": 90,
+    "mri": 90
+  },
+  "checked_policy_histories": 1440,
+  "mri_package_files": {
+    "mri_final.py": "e005089212fde943ceba26e7b5938916a1f8a9534aefd749bddb062bb5a91e90",
+    "protocol.json": "dd1d6985c485be338b7e10250ca0e7ca16c1042f13b279363bab555e69ce4a0e",
+    "eligibility.json": "ddde364658f47520bbdff3aac90bf28370e380cf292fd10009d68b2b665bd1d8"
+  },
+  "mri_binding_sha256": "9f139328759fb9c294ed37504ccde991fae0310e5bd26097d1e881f793a53967",
+  "quality": [
+    {
+      "domain": "face",
+      "budget": 0.05,
+      "policy": "uniform",
+      "n": 30,
+      "psnr": 25.842304738362632,
+      "ssim": 0.6909586101770401
+    },
+    {
+      "domain": "face",
+      "budget": 0.1,
+      "policy": "uniform",
+      "n": 30,
+      "psnr": 28.337248229980467,
+      "ssim": 0.7572900493939717
+    },
+    {
+      "domain": "face",
+      "budget": 0.25,
+      "policy": "uniform",
+      "n": 30,
+      "psnr": 32.286650848388675,
+      "ssim": 0.8503962318102519
+    },
+    {
+      "domain": "face",
+      "budget": 0.05,
+      "policy": "variable_density",
+      "n": 30,
+      "psnr": 27.82242800394694,
+      "ssim": 0.7456783791383107
+    },
+    {
+      "domain": "face",
+      "budget": 0.1,
+      "policy": "variable_density",
+      "n": 30,
+      "psnr": 30.35108693440755,
+      "ssim": 0.8081923027833303
+    },
+    {
+      "domain": "face",
+      "budget": 0.25,
+      "policy": "variable_density",
+      "n": 30,
+      "psnr": 34.11510759989421,
+      "ssim": 0.8897902627786001
+    },
+    {
+      "domain": "face",
+      "budget": 0.05,
+      "policy": "cm_spectral_repeat_k1",
+      "n": 30,
+      "psnr": 30.957259623209634,
+      "ssim": 0.8415037214756012
+    },
+    {
+      "domain": "face",
+      "budget": 0.1,
+      "policy": "cm_spectral_repeat_k1",
+      "n": 30,
+      "psnr": 32.73366241455078,
+      "ssim": 0.8829725921154022
+    },
+    {
+      "domain": "face",
+      "budget": 0.25,
+      "policy": "cm_spectral_repeat_k1",
+      "n": 30,
+      "psnr": 35.45969174702962,
+      "ssim": 0.9254109342892964
+    },
+    {
+      "domain": "face",
+      "budget": 0.05,
+      "policy": "cm_spectral_repeat_k5",
+      "n": 30,
+      "psnr": 31.345912424723306,
+      "ssim": 0.8521444201469421
+    },
+    {
+      "domain": "face",
+      "budget": 0.1,
+      "policy": "cm_spectral_repeat_k5",
+      "n": 30,
+      "psnr": 33.45380922953288,
+      "ssim": 0.8994494597117106
+    },
+    {
+      "domain": "face",
+      "budget": 0.25,
+      "policy": "cm_spectral_repeat_k5",
+      "n": 30,
+      "psnr": 37.29674746195475,
+      "ssim": 0.9535807371139526
+    },
+    {
+      "domain": "face",
+      "budget": 0.05,
+      "policy": "cm_spectral_repeat_k10",
+      "n": 30,
+      "psnr": 31.3762513478597,
+      "ssim": 0.8532311995824178
+    },
+    {
+      "domain": "face",
+      "budget": 0.1,
+      "policy": "cm_spectral_repeat_k10",
+      "n": 30,
+      "psnr": 33.48328119913737,
+      "ssim": 0.8997290670871735
+    },
+    {
+      "domain": "face",
+      "budget": 0.25,
+      "policy": "cm_spectral_repeat_k10",
+      "n": 30,
+      "psnr": 37.30872027079264,
+      "ssim": 0.9533180455366771
+    },
+    {
+      "domain": "face",
+      "budget": 0.05,
+      "policy": "adasense_matched",
+      "n": 30,
+      "psnr": 31.70321604410807,
+      "ssim": 0.8624693731466929
+    },
+    {
+      "domain": "face",
+      "budget": 0.1,
+      "policy": "adasense_matched",
+      "n": 30,
+      "psnr": 33.82710838317871,
+      "ssim": 0.9083895146846771
+    },
+    {
+      "domain": "face",
+      "budget": 0.25,
+      "policy": "adasense_matched",
+      "n": 30,
+      "psnr": 37.58747418721517,
+      "ssim": 0.9577986856301626
+    },
+    {
+      "domain": "face",
+      "budget": 0.05,
+      "policy": "ads_matched",
+      "n": 30,
+      "psnr": 31.28273735046387,
+      "ssim": 0.8526140570640564
+    },
+    {
+      "domain": "face",
+      "budget": 0.1,
+      "policy": "ads_matched",
+      "n": 30,
+      "psnr": 33.0515188852946,
+      "ssim": 0.891722830136617
+    },
+    {
+      "domain": "face",
+      "budget": 0.25,
+      "policy": "ads_matched",
+      "n": 30,
+      "psnr": 35.97143363952637,
+      "ssim": 0.9332797984282176
+    },
+    {
+      "domain": "mri",
+      "budget": 0.05,
+      "policy": "uniform",
+      "n": 30,
+      "psnr": 19.67332602465389,
+      "ssim": 0.3472320725520452,
+      "nmse": 0.17954256903562918
+    },
+    {
+      "domain": "mri",
+      "budget": 0.1,
+      "policy": "uniform",
+      "n": 30,
+      "psnr": 20.465497779006892,
+      "ssim": 0.3830672467748324,
+      "nmse": 0.1502073025947963
+    },
+    {
+      "domain": "mri",
+      "budget": 0.25,
+      "policy": "uniform",
+      "n": 30,
+      "psnr": 25.843463923534518,
+      "ssim": 0.559563884139061,
+      "nmse": 0.052989547014249384
+    },
+    {
+      "domain": "mri",
+      "budget": 0.05,
+      "policy": "variable_density",
+      "n": 30,
+      "psnr": 21.43476013280979,
+      "ssim": 0.3909335911273956,
+      "nmse": 0.12624795540033718
+    },
+    {
+      "domain": "mri",
+      "budget": 0.1,
+      "policy": "variable_density",
+      "n": 30,
+      "psnr": 25.65657061750537,
+      "ssim": 0.4927179416020711,
+      "nmse": 0.05595165386580982
+    },
+    {
+      "domain": "mri",
+      "budget": 0.25,
+      "policy": "variable_density",
+      "n": 30,
+      "psnr": 28.138773872474303,
+      "ssim": 0.6105416913827261,
+      "nmse": 0.034571915530177695
+    },
+    {
+      "domain": "mri",
+      "budget": 0.05,
+      "policy": "cm_spectral_repeat_k1",
+      "n": 30,
+      "psnr": 23.064241962401717,
+      "ssim": 0.40537143796682357,
+      "nmse": 0.09048503475636478
+    },
+    {
+      "domain": "mri",
+      "budget": 0.1,
+      "policy": "cm_spectral_repeat_k1",
+      "n": 30,
+      "psnr": 25.090294010352135,
+      "ssim": 0.47131115595499673,
+      "nmse": 0.0645942514451727
+    },
+    {
+      "domain": "mri",
+      "budget": 0.25,
+      "policy": "cm_spectral_repeat_k1",
+      "n": 30,
+      "psnr": 27.069097657791325,
+      "ssim": 0.5819456865390141,
+      "nmse": 0.0443161980683903
+    },
+    {
+      "domain": "mri",
+      "budget": 0.05,
+      "policy": "cm_spectral_repeat_k5",
+      "n": 30,
+      "psnr": 23.224947443590484,
+      "ssim": 0.40827669749657314,
+      "nmse": 0.08622054780332773
+    },
+    {
+      "domain": "mri",
+      "budget": 0.1,
+      "policy": "cm_spectral_repeat_k5",
+      "n": 30,
+      "psnr": 25.464865480693128,
+      "ssim": 0.47895457595586777,
+      "nmse": 0.05675610557727002
+    },
+    {
+      "domain": "mri",
+      "budget": 0.25,
+      "policy": "cm_spectral_repeat_k5",
+      "n": 30,
+      "psnr": 27.912079770389578,
+      "ssim": 0.6052842567364375,
+      "nmse": 0.035485536953897986
+    },
+    {
+      "domain": "mri",
+      "budget": 0.05,
+      "policy": "cm_spectral_repeat_k10",
+      "n": 30,
+      "psnr": 23.257005204028523,
+      "ssim": 0.4091386303305626,
+      "nmse": 0.08600229288656165
+    },
+    {
+      "domain": "mri",
+      "budget": 0.1,
+      "policy": "cm_spectral_repeat_k10",
+      "n": 30,
+      "psnr": 25.493875981989554,
+      "ssim": 0.4795799935857455,
+      "nmse": 0.05645100768486926
+    },
+    {
+      "domain": "mri",
+      "budget": 0.25,
+      "policy": "cm_spectral_repeat_k10",
+      "n": 30,
+      "psnr": 27.921994452770107,
+      "ssim": 0.6056851327419281,
+      "nmse": 0.035411811409256165
+    },
+    {
+      "domain": "mri",
+      "budget": 0.05,
+      "policy": "adasense_matched",
+      "n": 30,
+      "psnr": 24.268784494255847,
+      "ssim": 0.4300795833269755,
+      "nmse": 0.07134743610282884
+    },
+    {
+      "domain": "mri",
+      "budget": 0.1,
+      "policy": "adasense_matched",
+      "n": 30,
+      "psnr": 26.13283211429184,
+      "ssim": 0.4952711264292399,
+      "nmse": 0.05128502554346107
+    },
+    {
+      "domain": "mri",
+      "budget": 0.25,
+      "policy": "adasense_matched",
+      "n": 30,
+      "psnr": 28.18999839343735,
+      "ssim": 0.6137478897968928,
+      "nmse": 0.03431129754962595
+    },
+    {
+      "domain": "mri",
+      "budget": 0.05,
+      "policy": "ads_matched",
+      "n": 30,
+      "psnr": 23.644059194239322,
+      "ssim": 0.4163289378086726,
+      "nmse": 0.08133586103662525
+    },
+    {
+      "domain": "mri",
+      "budget": 0.1,
+      "policy": "ads_matched",
+      "n": 30,
+      "psnr": 25.634166503336303,
+      "ssim": 0.48237057675917944,
+      "nmse": 0.05577166949829755
+    },
+    {
+      "domain": "mri",
+      "budget": 0.25,
+      "policy": "ads_matched",
+      "n": 30,
+      "psnr": 27.902682840854556,
+      "ssim": 0.6048123300075531,
+      "nmse": 0.03562503686004725
+    }
+  ],
+  "efficiency": [
+    {
+      "domain": "face",
+      "policy": "uniform",
+      "nfe": 0,
+      "peak_gib": 0.8641524314880371,
+      "timing_n": 9,
+      "median_seconds": 1.0408244850113988
+    },
+    {
+      "domain": "face",
+      "policy": "variable_density",
+      "nfe": 0,
+      "peak_gib": 0.8666553497314453,
+      "timing_n": 9,
+      "median_seconds": 1.2292508129030466
+    },
+    {
+      "domain": "face",
+      "policy": "cm_spectral_repeat_k1",
+      "nfe": 5,
+      "peak_gib": 1.2416605949401855,
+      "timing_n": 9,
+      "median_seconds": 9.557429175358266
+    },
+    {
+      "domain": "face",
+      "policy": "cm_spectral_repeat_k5",
+      "nfe": 25,
+      "peak_gib": 1.2438578605651855,
+      "timing_n": 9,
+      "median_seconds": 9.819316122215241
+    },
+    {
+      "domain": "face",
+      "policy": "cm_spectral_repeat_k10",
+      "nfe": 50,
+      "peak_gib": 1.2438578605651855,
+      "timing_n": 9,
+      "median_seconds": 10.442282986827195
+    },
+    {
+      "domain": "face",
+      "policy": "adasense_matched",
+      "nfe": 1000,
+      "peak_gib": 3.672337532043457,
+      "timing_n": 9,
+      "median_seconds": 12.007785201072693
+    },
+    {
+      "domain": "face",
+      "policy": "ads_matched",
+      "nfe": 80032,
+      "peak_gib": 33.82270574569702,
+      "timing_n": 9,
+      "median_seconds": 860.2552479780279
+    },
+    {
+      "domain": "mri",
+      "policy": "uniform",
+      "nfe": 0,
+      "peak_gib": 0.5063447952270508,
+      "timing_n": 24,
+      "median_seconds": 0.02699854364618659
+    },
+    {
+      "domain": "mri",
+      "policy": "variable_density",
+      "nfe": 0,
+      "peak_gib": 0.5100741386413574,
+      "timing_n": 24,
+      "median_seconds": 0.014007203048095107
+    },
+    {
+      "domain": "mri",
+      "policy": "cm_spectral_repeat_k1",
+      "nfe": 5,
+      "peak_gib": 1.1313133239746094,
+      "timing_n": 24,
+      "median_seconds": 0.17687034304253757
+    },
+    {
+      "domain": "mri",
+      "policy": "cm_spectral_repeat_k5",
+      "nfe": 25,
+      "peak_gib": 1.1348228454589844,
+      "timing_n": 24,
+      "median_seconds": 0.8232329606544226
+    },
+    {
+      "domain": "mri",
+      "policy": "cm_spectral_repeat_k10",
+      "nfe": 50,
+      "peak_gib": 1.1348228454589844,
+      "timing_n": 24,
+      "median_seconds": 1.6317410892806947
+    },
+    {
+      "domain": "mri",
+      "policy": "adasense_matched",
+      "nfe": 1000,
+      "peak_gib": 5.574374198913574,
+      "timing_n": 24,
+      "median_seconds": 19.951638509519398
+    },
+    {
+      "domain": "mri",
+      "policy": "ads_matched",
+      "nfe": 80032,
+      "peak_gib": 29.072787761688232,
+      "timing_n": 24,
+      "median_seconds": 2335.0795851782896
+    }
+  ]
+}

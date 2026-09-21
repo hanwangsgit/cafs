@@ -2,42 +2,50 @@
   {
     "index": 0,
     "unit_id": "celeba-hq:67",
-    "dataset_index": 67
+    "dataset_index": 67,
+    "source_sha256": "2d4c5ac46ab5cea6821519362b4d03026953a8c5638c937aa782ce661220f822"
   },
   {
     "index": 1,
     "unit_id": "celeba-hq:227",
-    "dataset_index": 227
+    "dataset_index": 227,
+    "source_sha256": "45b912fbf578d0877f31960fc7bdb2664213483212e81478d8a82ca5dc112250"
   },
   {
     "index": 2,
     "unit_id": "celeba-hq:429",
-    "dataset_index": 429
+    "dataset_index": 429,
+    "source_sha256": "fd44f333d2ad08538019d83faa4f47619f84c63b2911cbeb5bf0193c2eca8d2e"
   },
   {
     "index": 3,
     "unit_id": "celeba-hq:1283",
-    "dataset_index": 1283
+    "dataset_index": 1283,
+    "source_sha256": "cb7ee62dd8f4878fdf052757e431beb50fd2f880515c9e640b3bbb7c72824a2e"
   },
   {
     "index": 4,
     "unit_id": "celeba-hq:1483",
-    "dataset_index": 1483
+    "dataset_index": 1483,
+    "source_sha256": "d89e9253c5d25bcda0836ade1e552dbce7c7672ec0aa3c0794e04931b0db66aa"
   },
   {
     "index": 5,
     "unit_id": "celeba-hq:1146",
-    "dataset_index": 1146
+    "dataset_index": 1146,
+    "source_sha256": "413a8cd96aab0bcb4dd4fad472086cc5d521b53cc259ed484149dc38b1ffe21f"
   },
   {
     "index": 6,
     "unit_id": "celeba-hq:1394",
-    "dataset_index": 1394
+    "dataset_index": 1394,
+    "source_sha256": "aba1e5d95841610191e5b52d14efa5f36dcb2448115510698243d5e9b76c5030"
   },
   {
     "index": 7,
     "unit_id": "celeba-hq:1044",
-    "dataset_index": 1044
+    "dataset_index": 1044,
+    "source_sha256": "ac3ad83e2e433950cad06fbfb13336a7c7f02ec9e48682895d50366d567e339b"
   },
   {
     "index": 8,
@@ -48,12 +56,14 @@
   {
     "index": 9,
     "unit_id": "celeba-hq:1104",
-    "dataset_index": 1104
+    "dataset_index": 1104,
+    "source_sha256": "e1abe4028cfaf629eb85349be6056c9090d65411f267087de1f8b10272cb2be4"
   },
   {
     "index": 10,
     "unit_id": "celeba-hq:1121",
-    "dataset_index": 1121
+    "dataset_index": 1121,
+    "source_sha256": "130ed8337c4448d8fe0a39b292738653742c51e9294463cf01bee54642decc04"
   },
   {
     "index": 11,
@@ -64,91 +74,109 @@
   {
     "index": 12,
     "unit_id": "celeba-hq:236",
-    "dataset_index": 236
+    "dataset_index": 236,
+    "source_sha256": "a37f7e6f9f8765576f2b31f30509d80e51e297ccfa996054c26eb3f0333d5887"
   },
   {
     "index": 13,
     "unit_id": "celeba-hq:1051",
-    "dataset_index": 1051
+    "dataset_index": 1051,
+    "source_sha256": "0e7ae247a9db329ae81f1538fa21ddd1d8baa8af4e18fe49c120ecb2489fa747"
   },
   {
     "index": 14,
     "unit_id": "celeba-hq:327",
-    "dataset_index": 327
+    "dataset_index": 327,
+    "source_sha256": "62489109521e0fe0b67f346bc4d4dfa7bcc71d241cc72b7b59d0a35c868f2ae7"
   },
   {
     "index": 15,
     "unit_id": "celeba-hq:917",
-    "dataset_index": 917
+    "dataset_index": 917,
+    "source_sha256": "25d2fcdc1fe61007d91051fde71c9a8698216d2f4aa495e088627a9f138d7522"
   },
   {
     "index": 16,
     "unit_id": "celeba-hq:1435",
-    "dataset_index": 1435
+    "dataset_index": 1435,
+    "source_sha256": "8c2afe32175dc1e92131749264a7bd210607f548a8b4485f3ec4fe6d9c12435e"
   },
   {
     "index": 17,
     "unit_id": "celeba-hq:1424",
-    "dataset_index": 1424
+    "dataset_index": 1424,
+    "source_sha256": "c7d2abd81d3d3a4300d6e433a12ff05dfc785b28ff68116ba8e752a2912c4898"
   },
   {
     "index": 18,
     "unit_id": "celeba-hq:1227",
-    "dataset_index": 1227
+    "dataset_index": 1227,
+    "source_sha256": "ef94e3e4bb486ca07679a57f70508097a104764c572ba4669ab85a9fc95886c5"
   },
   {
     "index": 19,
     "unit_id": "celeba-hq:310",
-    "dataset_index": 310
+    "dataset_index": 310,
+    "source_sha256": "8739391810940b0ac2cdac884d2f229d0ba75fbc9c81b9b1055070e63f2d7dc1"
   },
   {
     "index": 20,
     "unit_id": "celeba-hq:1014",
-    "dataset_index": 1014
+    "dataset_index": 1014,
+    "source_sha256": "39eccfe849c0c4dc5a2ec1de22bdd1b2af44f7794f90afce39aef95db1999343"
   },
   {
     "index": 21,
     "unit_id": "celeba-hq:919",
-    "dataset_index": 919
+    "dataset_index": 919,
+    "source_sha256": "edbbecfe78965a8245eb24fe6978ca77a9be3f3139080cf46336b578c0671ef4"
   },
   {
     "index": 22,
     "unit_id": "celeba-hq:250",
-    "dataset_index": 250
+    "dataset_index": 250,
+    "source_sha256": "747b7dbc459f3538990288ecd4227139c04c06353bebc7445145a16b43a5a9c1"
   },
   {
     "index": 23,
     "unit_id": "celeba-hq:1208",
-    "dataset_index": 1208
+    "dataset_index": 1208,
+    "source_sha256": "ba618ef989e89843caedc58180000715beb2fdeb4a2405a12e4b2c31580cd27a"
   },
   {
     "index": 24,
     "unit_id": "celeba-hq:768",
-    "dataset_index": 768
+    "dataset_index": 768,
+    "source_sha256": "f033ea15fe97a3f7d366759eb2d68337c21f31e6117702957880cb26a0c39a16"
   },
   {
     "index": 25,
     "unit_id": "celeba-hq:66",
-    "dataset_index": 66
+    "dataset_index": 66,
+    "source_sha256": "133b13b160be28f626a8fedc84ecb73627ea1990a85d62f888b82e2e96a7791a"
   },
   {
     "index": 26,
     "unit_id": "celeba-hq:283",
-    "dataset_index": 283
+    "dataset_index": 283,
+    "source_sha256": "3cda717cf45f37e184ad34baa94f559cfa36f06e7bf4f36a82d0a8ffce22fb88"
   },
   {
     "index": 27,
     "unit_id": "celeba-hq:695",
-    "dataset_index": 695
+    "dataset_index": 695,
+    "source_sha256": "286ecda576b73f5d7692e18a55a495e9241a7ce65c33fbf136063367851f5da0"
   },
   {
     "index": 28,
     "unit_id": "celeba-hq:960",
-    "dataset_index": 960
+    "dataset_index": 960,
+    "source_sha256": "fcc437c7ab5edd82e8e77a2042c982a8368f3bbce54ecf47d12143b610fc345d"
   },
   {
     "index": 29,
     "unit_id": "celeba-hq:596",
-    "dataset_index": 596
+    "dataset_index": 596,
+    "source_sha256": "f95fe6af9d0b5547c883926ef4e10014ded3dc0244f1fa23ef66d6955fc622c2"
   }
 ]
