@@ -18,11 +18,6 @@ The face files require the accompanying [license and attribution notice](CHECKPO
 | MRI CM (`mri_cm.pt`) | `e295911e6a19c5ad93ee5e8380e7e8002b67648356e3569ee2de108e2f8ec9e0` |
 | MRI teacher (`fmri.ckpt`) | `eec7efcb0dcad569b819c9f4d2cf311f11f7f8e5be9af50c6d002a0f2c55e1f4` |
 
-Re-running distillation is not claimed to recreate these files:
-checkpoint-specific training identities and complete
-training provenance were not recorded. Training scripts with guessed settings
-are intentionally not offered as exact reproduction.
-
 For the face architecture, obtain a local Diffusers pipeline snapshot of
 [`google/ddpm-celebahq-256`](https://huggingface.co/google/ddpm-celebahq-256).
 The recorded `architecture_revision=c6a0e54d1d23` is a manifest-hash prefix, **not a

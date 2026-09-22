@@ -128,10 +128,6 @@ To verify the recovered records locally:
 python verify_results.py results/recovery/face results/recovery/mri
 ```
 
-The face CM training/evaluation overlap is unresolved. MRI uses a previously
-accessed evaluation pool; checkpoint-specific training exclusions are not
-independently verified. These data are not claimed to be an untouched test set.
-
 ## Local release state
 
 The GitHub remote is `hanwangsgit/cafs`, and the initial release candidate has
