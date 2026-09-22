@@ -1,24 +1,54 @@
 # CAFS
 
 Consistency Model-based Adaptive Fourier Sensing, accompanying
-**Fast Adaptive Fourier Sensing with Consistency Models** (ICASSP 2027 manuscript).
+**Fast Adaptive Fourier Sensing with Consistency Models**.
 Maintained by [hanwangsgit](https://github.com/hanwangsgit).
 
 CAFS alternates a corrected few-step consistency-model estimate with Fourier
 energy ranking. This extraction includes CelebA-HQ and single-coil fastMRI,
 matched AdaSense/ADS selectors, and the paper's fixed sampling baselines.
 
-**Release candidate:** the original source and all 180 result records have been
-recovered. Their aggregates reproduce every published table entry at its stated
-precision, and trained-model CPU smoke runs complete for both datasets.
-Release validation uses these archived results and completed CPU checks.
-The extracted package has not been rerun on CUDA; see [verification details](REPRODUCIBILITY.md).
-Checkpoints are staged separately in the
-[Google Drive folder](https://drive.google.com/drive/folders/1q_Hop4FCYnTJLEMBuSYFL6_cPjVjTo3p);
-public distribution of the MRI weights awaits permission. See
-[checkpoint terms](CHECKPOINT_NOTICE.md). Original CAFS code is
-[MIT licensed](LICENSE); third-party terms
-and remaining provenance questions are documented in [THIRD_PARTY.md](THIRD_PARTY.md).
+## Results
+
+At 10% sampling, five-step CAFS reduces median sensing time relative to matched
+AdaSense by **1.22× on CelebA-HQ** and **24.24× on fastMRI**.
+
+**Table 1. Sensing efficiency over five acquisition rounds.**
+
+| Method | NFEs | CelebA-HQ peak GPU (GiB) | CelebA-HQ time (s) | fastMRI peak GPU (GiB) | fastMRI time (s) |
+|---|---:|---:|---:|---:|---:|
+| Uniform | 0 | 0.864 | 1.041 | 0.506 | 0.027 |
+| VD | 0 | 0.867 | 1.229 | 0.510 | 0.014 |
+| CAFS K=1 | 5 | 1.242 | 9.557 | 1.131 | 0.177 |
+| **CAFS K=5** | 25 | 1.244 | 9.819 | 1.135 | 0.823 |
+| CAFS K=10 | 50 | 1.244 | 10.442 | 1.135 | 1.632 |
+| AdaSense | 1,000 | 3.672 | 12.008 | 5.574 | 19.952 |
+| ADS | 80,032 | 33.823 | 860.255 | 29.073 | 2,335.080 |
+
+Times exclude setup and final reconstruction and are medians at 10% sampling on
+an NVIDIA A100-SXM4 (80 GB), over 9 face images and 24 MRI volumes. Peak memory is
+the maximum allocated memory over all 30 cases, three budgets, and recorded GPU
+types. NFEs count sample-level forward and backward evaluations. AdaSense and ADS
+are matched selection adapters; face ADS adapts the MRI settings.
+
+**Figure 2. CelebA-HQ reconstruction at 10% sampling.**
+
+![Ground truth, Uniform, VD, CAFS K=5, AdaSense, and ADS face reconstructions, with PSNR and SSIM labels](assets/figure2-celeba.png)
+
+Image `celeba-hq:1257`, with a shared 20-step DDRM final reconstructor.
+Labels show PSNR (dB) / SSIM.
+
+**Figure 3. fastMRI reconstruction at 10% sampling.**
+
+![Ground truth, Uniform, VD, CAFS K=5, AdaSense, and ADS knee reconstructions, with PSNR and SSIM labels](assets/figure3-fastmri.png)
+
+Volume `file1002145.h5`, slice 19, with a shared 10-step corrected CM final
+reconstructor. Images show the central 320×320 magnitude crop; labels show
+PSNR (dB) / SSIM.
+
+Both figures are selected favorable CAFS examples and use a common display scale
+within each panel. Aggregate quality over all 30 cases per dataset at 5%, 10%,
+and 25% sampling is available in [the quality tables](reproduction/paper_metrics.csv).
 
 ## Setup
 
@@ -75,3 +105,16 @@ Implementation: `cafs/reconstruction.py` predicts and corrects;
 `cafs/policies.py` ranks complete Fourier groups;
 `cafs/experiment.py` binds the paper's settings and RNG streams.
 No research repository, cluster scheduler, or upstream baseline checkout is needed.
+
+## Reproducibility and licenses
+
+All 180 original result records are recovered, and their aggregates reproduce
+the reported tables at the stated precision. Source comparisons, checkpoint
+hashes, and completed CPU checks are documented in
+[REPRODUCIBILITY.md](REPRODUCIBILITY.md). The extracted package has not been rerun
+on CUDA.
+
+Original CAFS code is [MIT licensed](LICENSE). Checkpoints are staged in the
+[Google Drive folder](https://drive.google.com/drive/folders/1q_Hop4FCYnTJLEMBuSYFL6_cPjVjTo3p).
+See [checkpoint terms](CHECKPOINT_NOTICE.md) and [third-party attribution](THIRD_PARTY.md)
+for the upstream licenses and unresolved MRI-weight redistribution permission.
