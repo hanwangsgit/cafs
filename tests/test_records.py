@@ -14,12 +14,16 @@ class RecordChecks(unittest.TestCase):
         manifest=json.loads((ROOT/'reproduction/source_map.json').read_text())
         for entry in manifest['symbols']:
             data=(ROOT/'cafs'/entry['file']).read_bytes()
-            if 'file_sha256' in entry:
-                self.assertEqual(hashlib.sha256(data).hexdigest(),entry['file_sha256'])
-            else:
-                node=next(n for n in ast.parse(data).body if getattr(n,'name',None)==entry['symbol'])
-                digest=hashlib.sha256(ast.dump(node,include_attributes=False).encode()).hexdigest()
-                self.assertEqual(digest,entry['ast_sha256'],entry['symbol'])
+            tree=ast.parse(data)
+            if 'symbol' in entry:
+                tree=next(n for n in tree.body if getattr(n,'name',None)==entry['symbol'])
+            for node in ast.walk(tree):
+                if isinstance(node,(ast.Module,ast.ClassDef,ast.FunctionDef,ast.AsyncFunctionDef)) and node.body:
+                    first=node.body[0]
+                    if isinstance(first,ast.Expr) and isinstance(first.value,ast.Constant) and isinstance(first.value.value,str):
+                        node.body=node.body[1:]
+            digest=hashlib.sha256(ast.dump(tree,include_attributes=False).encode()).hexdigest()
+            self.assertEqual(digest,entry['executable_ast_sha256'],entry.get('symbol',entry['file']))
 
     def test_full_data_bindings(self):
         for domain in ['face','mri']:

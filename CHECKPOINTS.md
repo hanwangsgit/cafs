@@ -1,38 +1,21 @@
-# Exact model inputs
+# Data and model setup
 
-The runner checks checkpoint **file** SHA-256 before loading. It never substitutes
-an undistilled DDPM for a missing CM. Put weights in the ignored `checkpoints/`
-directory or pass another local path. These files are not in Git.
+Run the commands from the repository root after installing the dependencies.
+The paper uses four checkpoint files. Their SHA-256 hashes are checked before
+model loading.
 
-[Checkpoint folder on Google Drive](https://drive.google.com/drive/folders/1q_Hop4FCYnTJLEMBuSYFL6_cPjVjTo3p)
-is the maintainer's staging location. Keep this mixed folder restricted until
-the MRI checkpoint redistribution terms are established; anonymous access and
-cloud-download integrity have not been verified. Authorized downloads should
-retain the filenames below and `SHA256SUMS` in `checkpoints/`.
-The face files require the accompanying [license and attribution notice](CHECKPOINT_NOTICE.md).
+## Checkpoints
 
-| Input | SHA-256 |
-|---|---|
-| Face CM (`face_cm.pt`, originally `ema_step10000.pt`) | `2fcab89eb72c87d8063c72881b824c13f86296d7a89a2a1f3d7d4b94e089dd98` |
-| Face teacher (`face_teacher.pt`) | `7feaf1992a34be4b17d41e6d90185876e8fddc58bdd2409c619a0b45b79890e9` |
-| MRI CM (`mri_cm.pt`) | `e295911e6a19c5ad93ee5e8380e7e8002b67648356e3569ee2de108e2f8ec9e0` |
-| MRI teacher (`fmri.ckpt`) | `eec7efcb0dcad569b819c9f4d2cf311f11f7f8e5be9af50c6d002a0f2c55e1f4` |
+Download the files and `SHA256SUMS` from the
+[checkpoint folder](https://drive.google.com/drive/folders/1q_Hop4FCYnTJLEMBuSYFL6_cPjVjTo3p)
+and place them in `checkpoints/`:
 
-For the face architecture, obtain a local Diffusers pipeline snapshot of
-[`google/ddpm-celebahq-256`](https://huggingface.co/google/ddpm-celebahq-256).
-The recorded `architecture_revision=c6a0e54d1d23` is a manifest-hash prefix, **not a
-verified Hugging Face commit**. Its `model_index.json` must hash to
-`c6a0e54d1d235280bce7e40abae49b73c4de0011ddbf09d817ce39e848cc2fa7`.
-The original run then loaded explicit teacher/student state dictionaries into
-the same architecture. Use the bound teacher dictionary from the checkpoint folder;
-re-serializing equivalent tensors can change a file hash.
-
-Obtain the MRI teacher through the
-[official download](https://drive.google.com/file/d/1Vzu0ixfV2CDnEGlSQjmlCOuw2gS10Ync/view)
-linked by the [AdaSense pretrained-model instructions](https://github.com/noamelata/AdaSense#pretrained-models).
-Verify the downloaded file against the table above. The student is a state dict
-for `build_mri_unet()` (keys under `model.`); the teacher uses the underlying
-network keys, optionally prefixed with `module.` or nested under `state_dict`.
+| File | Used for | SHA-256 |
+|---|---|---|
+| `face_cm.pt` | Face CAFS estimates | `2fcab89eb72c87d8063c72881b824c13f86296d7a89a2a1f3d7d4b94e089dd98` |
+| `face_teacher.pt` | Face DDRM, matched AdaSense/ADS | `7feaf1992a34be4b17d41e6d90185876e8fddc58bdd2409c619a0b45b79890e9` |
+| `mri_cm.pt` | MRI CAFS estimates and final CM | `e295911e6a19c5ad93ee5e8380e7e8002b67648356e3569ee2de108e2f8ec9e0` |
+| `fmri.ckpt` | MRI matched AdaSense/ADS | `eec7efcb0dcad569b819c9f4d2cf311f11f7f8e5be9af50c6d002a0f2c55e1f4` |
 
 ```sh
 cd checkpoints
@@ -40,26 +23,49 @@ shasum -a 256 -c SHA256SUMS
 cd ..
 ```
 
-The local face CM file matches the expected hash. A local Hugging Face cache
-snapshot named `cd5c944777ea2668051904ead6cc120739b86c4d` also has the expected
-architecture-manifest hash. Its pipeline loads offline, and the face CM state
-dictionary loads strictly with all keys matching under the tested environment.
-This verifies loading, not a trained-model reconstruction or the full original
-architecture-directory identity.
+Linux users can use `sha256sum -c SHA256SUMS`. The MRI teacher is also available
+from the [official AdaSense download](https://drive.google.com/file/d/1Vzu0ixfV2CDnEGlSQjmlCOuw2gS10Ync/view).
+Use the exact checkpoint files: re-saving the same tensors can change the file
+hash. Checkpoint origins and license terms are in [CHECKPOINT_NOTICE.md](CHECKPOINT_NOTICE.md).
+The local Drive copies match these hashes; anonymous cloud downloads have not
+been independently verified.
 
-The cached `diffusion_pytorch_model.bin` hashes to
-`efff89712093ad060ce99d9b461bbe542b49d8dd4ce30f23fe5761dca292361d`.
-It is not the bound face teacher file listed above; tensor equivalence has not
-been verified. Do not replace the required teacher hash with this candidate.
-The exact face teacher and both MRI checkpoints were recovered from the cluster
-and independently verified locally against the hashes above. All four files are
-now staged under the ignored `checkpoints/` directory using the names in the
-README, with `checkpoints/SHA256SUMS`. The downloaded archives and backup copies
-remain under ignored `results/recovery/`. The four copies in the local Google
-Drive sync folder also match these hashes. Checkpoints are not Git assets.
+## Face architecture
 
-CPU smoke runs with the verified weights completed five K=1 CAFS sensing rounds
-and the paper's final reconstructor for each dataset. These validate execution;
-CPU RNGs and the local package versions do not reproduce the original CUDA run.
+Download the exact Hugging Face snapshot used in the completed local loading
+checks. The runner loads its architecture and schedule, then replaces the UNet
+weights with the explicit student or teacher checkpoint above.
 
-Keep upstream model and dataset terms when obtaining or redistributing assets.
+```sh
+hf download google/ddpm-celebahq-256 \
+  model_index.json config.json scheduler_config.json diffusion_pytorch_model.bin \
+  --revision cd5c944777ea2668051904ead6cc120739b86c4d \
+  --local-dir checkpoints/ddpm-celebahq-256
+```
+
+The `hf` command comes with the `huggingface_hub` dependency; see the
+[official download instructions](https://huggingface.co/docs/huggingface_hub/guides/cli#hf-download).
+The runner requires `model_index.json` SHA-256
+`c6a0e54d1d235280bce7e40abae49b73c4de0011ddbf09d817ce39e848cc2fa7`.
+MRI architecture and schedule are included in `cafs/mri_prior.py`.
+
+## CelebA-HQ
+
+```sh
+python prepare_data.py --output data/celeba
+```
+
+This exports the 30 specified images from `PhilSad/celeba-hq-1.5k`, revision
+`a18e1cc5a351bce68739722bad0efa2c842bbc10`, and checks each PNG against its
+recorded source hash. Images are converted to RGB, resized to 256×256 using
+bilinear interpolation with antialiasing, and mapped to [-1,1] by the loader.
+Image identifiers are in `reproduction/face_samples.json`.
+
+## fastMRI
+
+Obtain the single-coil knee validation HDF5 files through
+[fastMRI](https://fastmri.med.nyu.edu/) under its data-access terms. Place the
+files listed in `reproduction/mri_samples.json` in `data/singlecoil_val/`.
+The manifest fixes one slice per volume. The loader verifies both the source
+file and the preprocessed tensor hashes; it does not select a different slice
+or normalization when an input differs. Datasets are not distributed here.

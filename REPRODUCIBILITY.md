@@ -2,17 +2,14 @@
 
 ## Source and scope
 
-The manuscript is *Fast Adaptive Fourier Sensing with Consistency Models*,
-ICASSP 2027 draft, inspected on 2026-09-21. Its retained records point to research
-commit `5dd9e6b2ee288f6f9bc8a60078f6d47877808a08`. Extraction reads that commit;
-it does not use the later research branch defaults or alter the research tree.
+The implementation and archived measurements accompany *Fast Adaptive Fourier
+Sensing with Consistency Models*. The numerical routines originate from research
+commit `5dd9e6b2ee288f6f9bc8a60078f6d47877808a08`.
 
-`reproduction/source_map.json` maps 71 extracted definitions plus the MRI network
-file to their sources and hashes. Numerical definitions retain their source ASTs;
-imports are local to `cafs`. The new experiment driver removes cluster integration,
-DIP status machinery, unrelated experiments, and the unused second final
-reconstructor. These removals do not consume or change selection RNG streams.
-The one-shot K=1 arm is retained because the manuscript describes it.
+`reproduction/source_map.json` records source-file hashes and numerical-code
+fingerprints. Documentation edits are tracked separately from executable code.
+The standalone runner uses one common final reconstructor per dataset and retains
+the one-shot K=1 ablation alongside the three repeated CAFS variants.
 
 ## Frozen settings
 
@@ -55,8 +52,8 @@ as in the original. Do not unify these dtypes or move their RNGs between devices
 
 ## Verification performed
 
-- AST equality for every extracted numerical definition; byte equality for the
-  MRI network against the recorded source commit.
+- Executable-AST equality for every extracted numerical definition and the
+  MRI network against the recorded source, excluding documentation strings.
 - CPU original-versus-extracted comparisons: corrected CM at K=1/5/10 in both
   domains, final DDRM and AdaSense posterior draws in both domains, and MRI
   metrics. All 11 comparisons were bit-exact using deterministic toy priors.
@@ -69,7 +66,8 @@ as in the original. Do not unify these dtypes or move their RNGs between devices
   without the downloaded archives.
 - All 42 quality rows and 14 efficiency rows reproduce manuscript rounding from
   the original records. `reproduction/verified_tables.json` stores the recomputed
-  statistics; `verify_results.py` repeats the checks on extracted archives.
+  statistics; `verify_results.py` repeats table recomputation using the bundled measurements
+  and supports the additional audit when original archives are supplied.
 - The original MRI runner, protocol, and eligibility file match their bound
   package hash. Every MRI record agrees with the recovered binding and protocol.
   The standalone wrapper has been reviewed against that recovered runner.
@@ -84,61 +82,64 @@ as in the original. Do not unify these dtypes or move their RNGs between devices
   history are included. Numeric reference cases contain sampling histories and
   metrics only, without images or machine/user paths.
 
-Run the retained checks with `python -m unittest discover -s tests -v`.
-Local CPU environment: Python 3.10, torch 2.11.0, torchvision 0.26.0, NumPy 2.2.6,
-Diffusers 0.37.1, datasets 4.8.4, h5py 3.16.0, Pillow 12.2.0. These are the pins in
-`requirements.txt`, not a recovered historical GPU lockfile. The source records
-report Python 3.10.20, torch 2.5.1+cu121 and CUDA 12.1; remaining historical package
-versions are unavailable. No dependency installation was tested in a fresh
-networked environment.
+## Environments
 
-## Limits that remain
+| Profile | PyTorch / torchvision | Purpose |
+|---|---|---|
+| Original recorded runs | 2.5.1+cu121 / not recorded | Source of the reported GPU measurements |
+| `requirements-cuda.txt` | 2.5.1+cu121 / 0.20.1+cu121 | Linux GPU installation using the recorded PyTorch/CUDA versions |
+| `requirements.txt` | 2.11.0 / 0.26.0 | Environment used for the completed CPU checks |
 
-The recovered archives contain 90 complete face blocks and 90 complete MRI
-blocks, eight sensing policies and two final reconstructors per block. The
-original MRI launch package and both data manifests are available locally under
-ignored `results/recovery/`. The release keeps numerical summaries, identifiers,
-and hashes; it does not include raw archives or cluster launch infrastructure.
+Both release profiles use the shared pins in `requirements-runtime.txt`.
+Those additional pins come from the local validation environment; they are not
+an archived lockfile for every original GPU package. The CUDA profile has not
+been executed during this extraction. Its PyTorch/torchvision pairing follows
+the [official PyTorch 2.5.1 installation instructions](https://pytorch.org/get-started/previous-versions/#v251).
 
-All 30 face source-file hashes and all 30 MRI source-file/tensor hashes have been
-restored from the original bindings. The loaders enforce these identities.
-Face exports also carry the pinned dataset revision and their per-file manifest.
+## Included records
 
-Release validation uses the archived GPU records, source comparisons, checkpoint
-hashes, and completed CPU checks described above. No further experiment runs are
-planned for this release. The extracted package has not been rerun on CUDA, so
-no new GPU masks, reconstruction metrics, memory measurements, or timings are
-claimed. CPU/device/version equivalence must not be inferred from the smoke
-checks. The full original face architecture-directory identity remains
-unverified beyond the recorded manifest hash and successful model loading.
-The maintainer-provided Google Drive folder is linked in `CHECKPOINTS.md`.
-All four local Drive copies match the recorded hashes; anonymous cloud access
-and downloads have not yet been independently verified. Face checkpoint license
-notices are prepared. MRI teacher and distilled-student redistribution permission
-remains unresolved; the mixed folder is not cleared for public distribution.
-
-Full acquisition timing excludes setup and final reconstruction and subtracts
-CM diagnostics. Paper timing uses medians on A100-SXM4 at 10% (9 faces, 24 MRI
-volumes); memory uses the maximum across all 30 cases, three budgets and
-recorded GPUs. `summarize.py` reports actual counts for new runs.
-
-To verify the recovered records locally:
+`reproduction/paper_runs.csv` contains one row per domain, case, budget, and
+sensing policy: 180 blocks and 1,440 rows. Each row preserves the original final
+reconstructor's quality metrics, sensing NFEs, elapsed time, allocated memory,
+GPU model, and SHA-256 of its source record. The face rows use final DDRM; MRI
+rows use final corrected CM. Paths, hostnames, datasets, and weights are omitted.
 
 ```sh
-python verify_results.py results/recovery/face results/recovery/mri
+python3 verify_results.py > verified-results.json
 ```
 
-## Local release state
+The command uses the bundled measurements and Python's standard library to
+check coverage, duplicates, means, timing medians, peak memory, and agreement
+with the rounded published tables. This is table recomputation from recorded
+measurements; it performs no model execution. `reproduction/verified_tables.json`
+contains the corresponding archive-verification output.
 
-The GitHub remote is `hanwangsgit/cafs`, and the initial release candidate has
-been pushed. Original CAFS code is licensed under MIT in `LICENSE`; third-party
-terms and remaining provenance questions are documented in `THIRD_PARTY.md`.
-The manuscript still has placeholder authors, so this extraction does not invent
-a final paper author list or bibliographic acceptance claim.
+For maintainers with the original unpacked archives, the same script supports
+an additional audit of action histories, masks, bindings, and the original MRI
+source package:
 
-The repository uses a fresh `main` history containing only the release files.
-The research repository history is not imported.
+```sh
+python verify_results.py FACE_ARCHIVE_DIRECTORY MRI_ARCHIVE_DIRECTORY
+```
 
-Remaining release tasks concern checkpoint access and third-party redistribution
-terms. A new experiment run is not a release requirement; the verification scope
-and limitations above remain part of the release documentation.
+This optional mode requires PyTorch and original archive metadata. It is not
+needed for the default public table-verification command.
+
+## Verification scope
+
+The completed verification consists of source comparisons, archived-record
+checks, exact checkpoint hashes, and CPU execution checks. The extracted package
+has not been rerun on CUDA. Existing GPU results are supplied as measurements;
+new runs can vary with device, software versions, and ADS backward nondeterminism.
+
+All 30 face source-file hashes and all 30 MRI source-file/tensor hashes are
+included in the sample manifests and enforced by the loaders. The face pipeline
+snapshot specified in `configs/face.json` was loaded locally with the verified
+student and teacher files. Its model-index hash matches the recorded binding;
+the complete original pipeline-directory contents were not independently hashed.
+
+Checkpoint locations and setup commands are in [CHECKPOINTS.md](CHECKPOINTS.md).
+All four local checkpoint files and their copies in the Drive sync folder match
+the expected hashes. Anonymous cloud downloads have not been independently
+verified. Checkpoint licensing information is consolidated in
+[CHECKPOINT_NOTICE.md](CHECKPOINT_NOTICE.md).

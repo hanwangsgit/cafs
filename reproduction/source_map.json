@@ -6,502 +6,575 @@
       "symbol": "MeasurementGroup",
       "source": "measurement_groups.py",
       "source_sha256": "52677d596fbd9ec7ba1345ad80b2f9a173f09e5f325aa4bb116da231828c08b9",
-      "ast_sha256": "4c4bdd60d17c3287efb3ec5054565e9b3a56f179bfe69f609f07c3b5149afb46"
+      "ast_sha256": "4c4bdd60d17c3287efb3ec5054565e9b3a56f179bfe69f609f07c3b5149afb46",
+      "executable_ast_sha256": "225b7175e0aa92ce7528dd7cbf7fbbcf718d8fd0b901328c200e446aff046b37"
     },
     {
       "file": "groups.py",
       "symbol": "real_fourier_orbits",
       "source": "measurement_groups.py",
       "source_sha256": "52677d596fbd9ec7ba1345ad80b2f9a173f09e5f325aa4bb116da231828c08b9",
-      "ast_sha256": "a9ee8f2b4bdb2b61b5cb6173030b354b1e171f756f5d1b33b8455fa867e74eed"
+      "ast_sha256": "a9ee8f2b4bdb2b61b5cb6173030b354b1e171f756f5d1b33b8455fa867e74eed",
+      "executable_ast_sha256": "4443340630ac98a3cca5c4c481bd6dd923ad9565b0d176f629aed1bb85ad7f38"
     },
     {
       "file": "groups.py",
       "symbol": "largest_feasible_budget",
       "source": "measurement_groups.py",
       "source_sha256": "52677d596fbd9ec7ba1345ad80b2f9a173f09e5f325aa4bb116da231828c08b9",
-      "ast_sha256": "bd605b3022b05898f9ea7cd79e1be518f261cb6efbdbb8432164d7aff2a4be0b"
+      "ast_sha256": "bd605b3022b05898f9ea7cd79e1be518f261cb6efbdbb8432164d7aff2a4be0b",
+      "executable_ast_sha256": "bb3eabc06e4476f0ac770b3a743df9a9aa271463e4f5e308f3c6f794573ebf84"
     },
     {
       "file": "operators.py",
       "symbol": "LinearOp",
       "source": "linear_ops.py",
       "source_sha256": "86b56fd86c933f79a94d0d4bb255cffcdc286e20d26e129db7dabc3949686295",
-      "ast_sha256": "ef7a974d1c463379228173fc71fc4c00ca643169f92e9951cb411869fb301faa"
+      "ast_sha256": "ef7a974d1c463379228173fc71fc4c00ca643169f92e9951cb411869fb301faa",
+      "executable_ast_sha256": "427f6018798cf8ffc3ab8a847ad876dc406a05ba140cf654174351e826a78268"
     },
     {
       "file": "operators.py",
       "symbol": "PixelMaskOp",
       "source": "linear_ops.py",
       "source_sha256": "86b56fd86c933f79a94d0d4bb255cffcdc286e20d26e129db7dabc3949686295",
-      "ast_sha256": "5ff85414efb1333481f782da7c4a78839931960a7303a3fa3852c0a9d98abc05"
+      "ast_sha256": "5ff85414efb1333481f782da7c4a78839931960a7303a3fa3852c0a9d98abc05",
+      "executable_ast_sha256": "8e5d835448328db6c97444cb85297171ba550879f7878fe6e71f6d1efd20bc0d"
     },
     {
       "file": "operators.py",
       "symbol": "hermitian_symmetrize",
       "source": "linear_ops.py",
       "source_sha256": "86b56fd86c933f79a94d0d4bb255cffcdc286e20d26e129db7dabc3949686295",
-      "ast_sha256": "27725629e17aee360fabc708686d0d8ef25d577d47e79d4e9f3376168390b029"
+      "ast_sha256": "27725629e17aee360fabc708686d0d8ef25d577d47e79d4e9f3376168390b029",
+      "executable_ast_sha256": "b1da599fab77d007c78528eda9639c9a7461182d77d57073c73c6ad4427e392a"
     },
     {
       "file": "operators.py",
       "symbol": "_fourier_orbit_tables",
       "source": "linear_ops.py",
       "source_sha256": "86b56fd86c933f79a94d0d4bb255cffcdc286e20d26e129db7dabc3949686295",
-      "ast_sha256": "84213b0fc32abffdbd25ab53d6dcb8416e2590e7a7b2972514d6cae7737f78fa"
+      "ast_sha256": "84213b0fc32abffdbd25ab53d6dcb8416e2590e7a7b2972514d6cae7737f78fa",
+      "executable_ast_sha256": "e2bc7dd3597ce33edc4845d3a20073debfad3a5701aad624e82bd85971d0b77d"
     },
     {
       "file": "operators.py",
       "symbol": "FourierOp",
       "source": "linear_ops.py",
       "source_sha256": "86b56fd86c933f79a94d0d4bb255cffcdc286e20d26e129db7dabc3949686295",
-      "ast_sha256": "29af3d12d1df308a414a9e70de440fea3d188bac4ac5c388997d01b67656688e"
+      "ast_sha256": "29af3d12d1df308a414a9e70de440fea3d188bac4ac5c388997d01b67656688e",
+      "executable_ast_sha256": "d2e15adaa6239a13c357e824c848aa7b8ff15ae24f89bcee98ae7c55765bf27e"
     },
     {
       "file": "operators.py",
       "symbol": "PhaseEncodingLineOp",
       "source": "publication_v2/operators.py",
       "source_sha256": "2d3b204fcef6c102ed2a784b23df5c536e593138e591288736374d72cf5a581c",
-      "ast_sha256": "8ea65f61eea99534c4198e86c7a49593aa99999be363b4a1f67613975f4e4c81"
+      "ast_sha256": "8ea65f61eea99534c4198e86c7a49593aa99999be363b4a1f67613975f4e4c81",
+      "executable_ast_sha256": "941bbcb608b225428eb8e544810ebc66afe55efd11bba75c81b5b021575b62db"
     },
     {
       "file": "actions.py",
       "symbol": "BudgetTarget",
       "source": "publication_v2/actions.py",
       "source_sha256": "b44cade51d3a1643c3b6df392fba53fa5c018161894d0d74996ceadafc53734d",
-      "ast_sha256": "497dc1f267ba0b6da363a6c2b74ce126002cfc1d3142d0c2428522f9732a85f3"
+      "ast_sha256": "497dc1f267ba0b6da363a6c2b74ce126002cfc1d3142d0c2428522f9732a85f3",
+      "executable_ast_sha256": "497dc1f267ba0b6da363a6c2b74ce126002cfc1d3142d0c2428522f9732a85f3"
     },
     {
       "file": "actions.py",
       "symbol": "_half_up",
       "source": "publication_v2/actions.py",
       "source_sha256": "b44cade51d3a1643c3b6df392fba53fa5c018161894d0d74996ceadafc53734d",
-      "ast_sha256": "7def3ed4d6e391547c48d053f199665b3f8a123230939b548851a59e8f060d49"
+      "ast_sha256": "7def3ed4d6e391547c48d053f199665b3f8a123230939b548851a59e8f060d49",
+      "executable_ast_sha256": "7def3ed4d6e391547c48d053f199665b3f8a123230939b548851a59e8f060d49"
     },
     {
       "file": "actions.py",
       "symbol": "face_action_dictionary",
       "source": "publication_v2/actions.py",
       "source_sha256": "b44cade51d3a1643c3b6df392fba53fa5c018161894d0d74996ceadafc53734d",
-      "ast_sha256": "dcd1046d4836515bb4806ad2c62f42d1110909ef0e57d288c9ae782f475ffa75"
+      "ast_sha256": "dcd1046d4836515bb4806ad2c62f42d1110909ef0e57d288c9ae782f475ffa75",
+      "executable_ast_sha256": "5581208536913b1a9a83d6e17bc7f49edee9828d2efb04422e997cd8f3081fd0"
     },
     {
       "file": "actions.py",
       "symbol": "_mri_action_dictionary",
       "source": "publication_v2/actions.py",
       "source_sha256": "b44cade51d3a1643c3b6df392fba53fa5c018161894d0d74996ceadafc53734d",
-      "ast_sha256": "0fd9556c8e1426bbe88c843b33926334cb17fb8e142079fcb83c0a145f758c82"
+      "ast_sha256": "0fd9556c8e1426bbe88c843b33926334cb17fb8e142079fcb83c0a145f758c82",
+      "executable_ast_sha256": "0fd9556c8e1426bbe88c843b33926334cb17fb8e142079fcb83c0a145f758c82"
     },
     {
       "file": "actions.py",
       "symbol": "target_budget",
       "source": "publication_v2/actions.py",
       "source_sha256": "b44cade51d3a1643c3b6df392fba53fa5c018161894d0d74996ceadafc53734d",
-      "ast_sha256": "2b6a6f9884e10efcb75b2013fff47b63adcc3d0424b041af43fa275ba5fc04f8"
+      "ast_sha256": "2b6a6f9884e10efcb75b2013fff47b63adcc3d0424b041af43fa275ba5fc04f8",
+      "executable_ast_sha256": "2b6a6f9884e10efcb75b2013fff47b63adcc3d0424b041af43fa275ba5fc04f8"
     },
     {
       "file": "actions.py",
       "symbol": "_ranked_by_cost",
       "source": "publication_v2/actions.py",
       "source_sha256": "b44cade51d3a1643c3b6df392fba53fa5c018161894d0d74996ceadafc53734d",
-      "ast_sha256": "1509fcf554da2170dce6474fa3ef4184c23ad90b69ef817dcc48be025719cd65"
+      "ast_sha256": "1509fcf554da2170dce6474fa3ef4184c23ad90b69ef817dcc48be025719cd65",
+      "executable_ast_sha256": "1509fcf554da2170dce6474fa3ef4184c23ad90b69ef817dcc48be025719cd65"
     },
     {
       "file": "actions.py",
       "symbol": "_count_combinations",
       "source": "publication_v2/actions.py",
       "source_sha256": "b44cade51d3a1643c3b6df392fba53fa5c018161894d0d74996ceadafc53734d",
-      "ast_sha256": "6707621926f1c2ace5b1ee8ba4988328a16f369fbf3fd698d0d55229b844ecf3"
+      "ast_sha256": "6707621926f1c2ace5b1ee8ba4988328a16f369fbf3fd698d0d55229b844ecf3",
+      "executable_ast_sha256": "6707621926f1c2ace5b1ee8ba4988328a16f369fbf3fd698d0d55229b844ecf3"
     },
     {
       "file": "actions.py",
       "symbol": "select_exact_cost",
       "source": "publication_v2/actions.py",
       "source_sha256": "b44cade51d3a1643c3b6df392fba53fa5c018161894d0d74996ceadafc53734d",
-      "ast_sha256": "606851fc2bdcaa2e3a1e1b1f90ccf33a2406e8aa94b2cbe94cff5c86f4729eb3"
+      "ast_sha256": "606851fc2bdcaa2e3a1e1b1f90ccf33a2406e8aa94b2cbe94cff5c86f4729eb3",
+      "executable_ast_sha256": "089f079bc6dd707f4b6daf4f3e22ac3ab45fa9005677a38b319a2bc80950df00"
     },
     {
       "file": "actions.py",
       "symbol": "_gumbel_scores",
       "source": "publication_v2/actions.py",
       "source_sha256": "b44cade51d3a1643c3b6df392fba53fa5c018161894d0d74996ceadafc53734d",
-      "ast_sha256": "13692bf18c9462eac1307538601b442a562cb977cf1e8324443473f508d40a81"
+      "ast_sha256": "13692bf18c9462eac1307538601b442a562cb977cf1e8324443473f508d40a81",
+      "executable_ast_sha256": "13692bf18c9462eac1307538601b442a562cb977cf1e8324443473f508d40a81"
     },
     {
       "file": "actions.py",
       "symbol": "initial_actions",
       "source": "publication_v2/actions.py",
       "source_sha256": "b44cade51d3a1643c3b6df392fba53fa5c018161894d0d74996ceadafc53734d",
-      "ast_sha256": "0c7504224cc8f30c374d45e3285df6de87e3e5a84c3e93660c181d23161acced"
+      "ast_sha256": "0c7504224cc8f30c374d45e3285df6de87e3e5a84c3e93660c181d23161acced",
+      "executable_ast_sha256": "64ac7bdbb39098024b761ce4611af806982377f0dea2db608063ea587bcaba99"
     },
     {
       "file": "actions.py",
       "symbol": "ads_event_steps",
       "source": "publication_v2/actions.py",
       "source_sha256": "b44cade51d3a1643c3b6df392fba53fa5c018161894d0d74996ceadafc53734d",
-      "ast_sha256": "e2a46a33174a8bffbb23093bd1e426f5aeedb0fb1e5ed95dde989497dc670c59"
+      "ast_sha256": "e2a46a33174a8bffbb23093bd1e426f5aeedb0fb1e5ed95dde989497dc670c59",
+      "executable_ast_sha256": "7ff113cc5a21faa32903ccfe6e97d39ab185122f3f355477cd1a73e3755788a2"
     },
     {
       "file": "acquisition.py",
       "symbol": "SelectionAccounting",
       "source": "publication_v2/acquisition.py",
       "source_sha256": "1d9ecc6bae281896d48dc6cf226092e5a2018d60dcd69bbe190385d3421d1ade",
-      "ast_sha256": "edf062eafd9f495e21e9d98e149e526c2568debb65324936bb834eb1fc1e3631"
+      "ast_sha256": "edf062eafd9f495e21e9d98e149e526c2568debb65324936bb834eb1fc1e3631",
+      "executable_ast_sha256": "edf062eafd9f495e21e9d98e149e526c2568debb65324936bb834eb1fc1e3631"
     },
     {
       "file": "acquisition.py",
       "symbol": "_RequestActions",
       "source": "publication_v2/acquisition.py",
       "source_sha256": "1d9ecc6bae281896d48dc6cf226092e5a2018d60dcd69bbe190385d3421d1ade",
-      "ast_sha256": "2c0c42ffbcab8e62a057877564225909446793a28ae06f1dcff5ff0a0cd7d392"
+      "ast_sha256": "2c0c42ffbcab8e62a057877564225909446793a28ae06f1dcff5ff0a0cd7d392",
+      "executable_ast_sha256": "2c0c42ffbcab8e62a057877564225909446793a28ae06f1dcff5ff0a0cd7d392"
     },
     {
       "file": "acquisition.py",
       "symbol": "_AcquisitionCapability",
       "source": "publication_v2/acquisition.py",
       "source_sha256": "1d9ecc6bae281896d48dc6cf226092e5a2018d60dcd69bbe190385d3421d1ade",
-      "ast_sha256": "2b951766d8be8f602813deeece51d88a64a8323fca6599b5d7e0edcf2a505257"
+      "ast_sha256": "2b951766d8be8f602813deeece51d88a64a8323fca6599b5d7e0edcf2a505257",
+      "executable_ast_sha256": "2b951766d8be8f602813deeece51d88a64a8323fca6599b5d7e0edcf2a505257"
     },
     {
       "file": "acquisition.py",
       "symbol": "PolicyContext",
       "source": "publication_v2/acquisition.py",
       "source_sha256": "1d9ecc6bae281896d48dc6cf226092e5a2018d60dcd69bbe190385d3421d1ade",
-      "ast_sha256": "5263009d18bff8411223f6355fbef7d1d9ce626a6f274acf4a62f940075fdeb9"
+      "ast_sha256": "5263009d18bff8411223f6355fbef7d1d9ce626a6f274acf4a62f940075fdeb9",
+      "executable_ast_sha256": "5263009d18bff8411223f6355fbef7d1d9ce626a6f274acf4a62f940075fdeb9"
     },
     {
       "file": "acquisition.py",
       "symbol": "MeasurementOracle",
       "source": "publication_v2/acquisition.py",
       "source_sha256": "1d9ecc6bae281896d48dc6cf226092e5a2018d60dcd69bbe190385d3421d1ade",
-      "ast_sha256": "39143386c75bc6ec58dbe13540d6abb14e9249960224c04072a469fb349cc73a"
+      "ast_sha256": "39143386c75bc6ec58dbe13540d6abb14e9249960224c04072a469fb349cc73a",
+      "executable_ast_sha256": "ded1993233792321f059f8403585e3164d2db62cf9af03e137818e0b23a05f99"
     },
     {
       "file": "acquisition.py",
       "symbol": "PolicyResult",
       "source": "publication_v2/acquisition.py",
       "source_sha256": "1d9ecc6bae281896d48dc6cf226092e5a2018d60dcd69bbe190385d3421d1ade",
-      "ast_sha256": "b675e77ee831733e8848b8ad963252a054712f8fa79dd839c8dfba3a6e51eb95"
+      "ast_sha256": "b675e77ee831733e8848b8ad963252a054712f8fa79dd839c8dfba3a6e51eb95",
+      "executable_ast_sha256": "b675e77ee831733e8848b8ad963252a054712f8fa79dd839c8dfba3a6e51eb95"
     },
     {
       "file": "acquisition.py",
       "symbol": "_finish_result",
       "source": "publication_v2/acquisition.py",
       "source_sha256": "1d9ecc6bae281896d48dc6cf226092e5a2018d60dcd69bbe190385d3421d1ade",
-      "ast_sha256": "62dcd93856ff027c8f89bf76e15886ddcbbb3495d265971062525d87bb42add9"
+      "ast_sha256": "62dcd93856ff027c8f89bf76e15886ddcbbb3495d265971062525d87bb42add9",
+      "executable_ast_sha256": "62dcd93856ff027c8f89bf76e15886ddcbbb3495d265971062525d87bb42add9"
     },
     {
       "file": "acquisition.py",
       "symbol": "run_static_policy",
       "source": "publication_v2/acquisition.py",
       "source_sha256": "1d9ecc6bae281896d48dc6cf226092e5a2018d60dcd69bbe190385d3421d1ade",
-      "ast_sha256": "1e63818bef55d187c7e1b13c10c5483aff354353478c970e5155bdd82c79b6b8"
+      "ast_sha256": "1e63818bef55d187c7e1b13c10c5483aff354353478c970e5155bdd82c79b6b8",
+      "executable_ast_sha256": "54d2371356e357466c99d438a2df68fd2d8b82fb5a7815670e5b7d0e8089f83e"
     },
     {
       "file": "acquisition.py",
       "symbol": "run_feedback_policy",
       "source": "publication_v2/acquisition.py",
       "source_sha256": "1d9ecc6bae281896d48dc6cf226092e5a2018d60dcd69bbe190385d3421d1ade",
-      "ast_sha256": "ecf083bb31263f3d3c8561a1038463ffbc1a3a1edfa4243f7b8cab85c7f402ac"
+      "ast_sha256": "ecf083bb31263f3d3c8561a1038463ffbc1a3a1edfa4243f7b8cab85c7f402ac",
+      "executable_ast_sha256": "6ec1443655b0a8704d3c300f4a46d4b7e5d7d378e6467a1442c5646f28f755af"
     },
     {
       "file": "reconstruction.py",
       "symbol": "cm_reconstruct",
       "source": "cm_reconstruction.py",
       "source_sha256": "a333e835c639fdb839ede1379a6ecd1939eeed3aa6c5d0240c2d597eb8d8ced1",
-      "ast_sha256": "baddde700db6aff1a6c4289e50ee5b5f522190c442395ad9ab40bf7cc3e07b44"
+      "ast_sha256": "baddde700db6aff1a6c4289e50ee5b5f522190c442395ad9ab40bf7cc3e07b44",
+      "executable_ast_sha256": "3fab3af417c6a208e764ae75c341a452c13a7b79ec5851ab1188cbcbfa3c8b09"
     },
     {
       "file": "reconstruction.py",
       "symbol": "_tweedie",
       "source": "baseline_sensing.py",
       "source_sha256": "f528e4971b456939203ad44c5df9a6bd97b7d03e28132e4699b63e7820531e58",
-      "ast_sha256": "7954804db9a2329eb8aafea3c604b6e6841726845c06307132e6d85fc271f0f8"
+      "ast_sha256": "7954804db9a2329eb8aafea3c604b6e6841726845c06307132e6d85fc271f0f8",
+      "executable_ast_sha256": "7954804db9a2329eb8aafea3c604b6e6841726845c06307132e6d85fc271f0f8"
     },
     {
       "file": "reconstruction.py",
       "symbol": "ddrm_posterior_sample",
       "source": "baseline_sensing.py",
       "source_sha256": "f528e4971b456939203ad44c5df9a6bd97b7d03e28132e4699b63e7820531e58",
-      "ast_sha256": "01f8e0908f477e2cd549ce4cfa2ed8aa9993d9fb65c65ae106b52b488d5acb8b"
+      "ast_sha256": "01f8e0908f477e2cd549ce4cfa2ed8aa9993d9fb65c65ae106b52b488d5acb8b",
+      "executable_ast_sha256": "583d2508ac66a2bfd3cb5476e8541c08770cb4725d7e9456c06db62f0b14b762"
     },
     {
       "file": "reconstruction.py",
       "symbol": "CMStepTrace",
       "source": "spectral_cm_dip/reconstruction.py",
       "source_sha256": "54b5910178dd8321c825222ccd79b9e6b289316e22b506e565f5d0806365f223",
-      "ast_sha256": "8f11b1e000650bfe1f39d369615e3f93cffb3c171d2b0e4e0b670ae79bfba1ad"
+      "ast_sha256": "8f11b1e000650bfe1f39d369615e3f93cffb3c171d2b0e4e0b670ae79bfba1ad",
+      "executable_ast_sha256": "8f11b1e000650bfe1f39d369615e3f93cffb3c171d2b0e4e0b670ae79bfba1ad"
     },
     {
       "file": "reconstruction.py",
       "symbol": "CMTrace",
       "source": "spectral_cm_dip/reconstruction.py",
       "source_sha256": "54b5910178dd8321c825222ccd79b9e6b289316e22b506e565f5d0806365f223",
-      "ast_sha256": "e2bd8b6386863cc425a381036920f91fef14234eb6613923e465d330bea36e12"
+      "ast_sha256": "e2bd8b6386863cc425a381036920f91fef14234eb6613923e465d330bea36e12",
+      "executable_ast_sha256": "e2bd8b6386863cc425a381036920f91fef14234eb6613923e465d330bea36e12"
     },
     {
       "file": "reconstruction.py",
       "symbol": "CMReconstructor",
       "source": "spectral_cm_dip/reconstruction.py",
       "source_sha256": "54b5910178dd8321c825222ccd79b9e6b289316e22b506e565f5d0806365f223",
-      "ast_sha256": "ea7d121e6c68ddb356e46a005c5423cdad7cb7150d1f32c52d727c351e83b6f2"
+      "ast_sha256": "ea7d121e6c68ddb356e46a005c5423cdad7cb7150d1f32c52d727c351e83b6f2",
+      "executable_ast_sha256": "48b766a3412dcf2d087b24f8e86a2d7a6bcef45129bd04c99d3a62cff8c92982"
     },
     {
       "file": "policies.py",
       "symbol": "VariantSpec",
       "source": "spectral_cm_dip/config.py",
       "source_sha256": "68e2a6c711c0c565867c5da326589afbbae7aef1df23b8feff8787747f140fb7",
-      "ast_sha256": "98a4618dfbb57c767d797c2c4d66b0a7eed2da6aecde2670ed2be40f747d1a33"
+      "ast_sha256": "98a4618dfbb57c767d797c2c4d66b0a7eed2da6aecde2670ed2be40f747d1a33",
+      "executable_ast_sha256": "98a4618dfbb57c767d797c2c4d66b0a7eed2da6aecde2670ed2be40f747d1a33"
     },
     {
       "file": "policies.py",
       "symbol": "spectral_energy_scores",
       "source": "publication_v2/policies.py",
       "source_sha256": "e4aaf9bdb70dabb8ea5a9eec667f4ac8c2706076f9e5280998b9096cd31cd617",
-      "ast_sha256": "5a53ada12b07e09d09b2635d109f5603f29a85a66e63407daf4e154ee9606c39"
+      "ast_sha256": "5a53ada12b07e09d09b2635d109f5603f29a85a66e63407daf4e154ee9606c39",
+      "executable_ast_sha256": "15e2c17d20a73837ffd05220fc3f8c023bbb0bc066ae6d3bce608f50de06da5f"
     },
     {
       "file": "policies.py",
       "symbol": "_cpu_scores",
       "source": "publication_v2/policies.py",
       "source_sha256": "e4aaf9bdb70dabb8ea5a9eec667f4ac8c2706076f9e5280998b9096cd31cd617",
-      "ast_sha256": "6085f8e3ba19712b0d1a54f5d68ca4df4be53977c6b8b4dfd885f11939181040"
+      "ast_sha256": "6085f8e3ba19712b0d1a54f5d68ca4df4be53977c6b8b4dfd885f11939181040",
+      "executable_ast_sha256": "6085f8e3ba19712b0d1a54f5d68ca4df4be53977c6b8b4dfd885f11939181040"
     },
     {
       "file": "policies.py",
       "symbol": "_available_actions",
       "source": "publication_v2/policies.py",
       "source_sha256": "e4aaf9bdb70dabb8ea5a9eec667f4ac8c2706076f9e5280998b9096cd31cd617",
-      "ast_sha256": "b39f7ab9ac73fc9b8234430060e4baf1d24bf9634abfc1777cebaef17381f5f2"
+      "ast_sha256": "b39f7ab9ac73fc9b8234430060e4baf1d24bf9634abfc1777cebaef17381f5f2",
+      "executable_ast_sha256": "b39f7ab9ac73fc9b8234430060e4baf1d24bf9634abfc1777cebaef17381f5f2"
     },
     {
       "file": "policies.py",
       "symbol": "_select_event",
       "source": "publication_v2/policies.py",
       "source_sha256": "e4aaf9bdb70dabb8ea5a9eec667f4ac8c2706076f9e5280998b9096cd31cd617",
-      "ast_sha256": "bb789843aaa2973738dee09aaa31b5371f48c71652bb08e7015fa513d28c4ce5"
+      "ast_sha256": "bb789843aaa2973738dee09aaa31b5371f48c71652bb08e7015fa513d28c4ce5",
+      "executable_ast_sha256": "bb789843aaa2973738dee09aaa31b5371f48c71652bb08e7015fa513d28c4ce5"
     },
     {
       "file": "policies.py",
       "symbol": "_density_logits",
       "source": "publication_v2/policies.py",
       "source_sha256": "e4aaf9bdb70dabb8ea5a9eec667f4ac8c2706076f9e5280998b9096cd31cd617",
-      "ast_sha256": "b17fdc84554dc9800cad958012045cf1f490c176b23c75b9593114e1498d8e15"
+      "ast_sha256": "b17fdc84554dc9800cad958012045cf1f490c176b23c75b9593114e1498d8e15",
+      "executable_ast_sha256": "b17fdc84554dc9800cad958012045cf1f490c176b23c75b9593114e1498d8e15"
     },
     {
       "file": "policies.py",
       "symbol": "_available",
       "source": "spectral_cm_dip/policies.py",
       "source_sha256": "d959dd426689294296373d4cf3cb169d0eb7cc8028d6e28eda7a6f9c405ab242",
-      "ast_sha256": "dedccdaa1818238ce7eaa315ecbbfbf2197f384f6233a7ba794aa3a563429977"
+      "ast_sha256": "dedccdaa1818238ce7eaa315ecbbfbf2197f384f6233a7ba794aa3a563429977",
+      "executable_ast_sha256": "dedccdaa1818238ce7eaa315ecbbfbf2197f384f6233a7ba794aa3a563429977"
     },
     {
       "file": "policies.py",
       "symbol": "_select",
       "source": "spectral_cm_dip/policies.py",
       "source_sha256": "d959dd426689294296373d4cf3cb169d0eb7cc8028d6e28eda7a6f9c405ab242",
-      "ast_sha256": "5c2eadd02c37a3386f92f8e2fc33934d9225049f326d151a7ae74cfe66a1116e"
+      "ast_sha256": "5c2eadd02c37a3386f92f8e2fc33934d9225049f326d151a7ae74cfe66a1116e",
+      "executable_ast_sha256": "5c2eadd02c37a3386f92f8e2fc33934d9225049f326d151a7ae74cfe66a1116e"
     },
     {
       "file": "policies.py",
       "symbol": "_unpack_reconstruction",
       "source": "spectral_cm_dip/policies.py",
       "source_sha256": "d959dd426689294296373d4cf3cb169d0eb7cc8028d6e28eda7a6f9c405ab242",
-      "ast_sha256": "aa48cf4049d21162f04ebad1587e2a70c8540d5d1e11789a8c997d25016b3ccb"
+      "ast_sha256": "aa48cf4049d21162f04ebad1587e2a70c8540d5d1e11789a8c997d25016b3ccb",
+      "executable_ast_sha256": "aa48cf4049d21162f04ebad1587e2a70c8540d5d1e11789a8c997d25016b3ccb"
     },
     {
       "file": "policies.py",
       "symbol": "_cm_policy",
       "source": "spectral_cm_dip/policies.py",
       "source_sha256": "d959dd426689294296373d4cf3cb169d0eb7cc8028d6e28eda7a6f9c405ab242",
-      "ast_sha256": "cd8310d8e841d0ef325576af5e8a026f91b2eacc7d48ea59fb15e662cdeb8123"
+      "ast_sha256": "cd8310d8e841d0ef325576af5e8a026f91b2eacc7d48ea59fb15e662cdeb8123",
+      "executable_ast_sha256": "cd8310d8e841d0ef325576af5e8a026f91b2eacc7d48ea59fb15e662cdeb8123"
     },
     {
       "file": "policies.py",
       "symbol": "_static_scores",
       "source": "spectral_cm_dip/policies.py",
       "source_sha256": "d959dd426689294296373d4cf3cb169d0eb7cc8028d6e28eda7a6f9c405ab242",
-      "ast_sha256": "549b23a03839ca375c453007afaa7c3004ef5acdcdcedc7dc0e3ad492d7e8c0c"
+      "ast_sha256": "549b23a03839ca375c453007afaa7c3004ef5acdcdcedc7dc0e3ad492d7e8c0c",
+      "executable_ast_sha256": "549b23a03839ca375c453007afaa7c3004ef5acdcdcedc7dc0e3ad492d7e8c0c"
     },
     {
       "file": "policies.py",
       "symbol": "_static_policy",
       "source": "spectral_cm_dip/policies.py",
       "source_sha256": "d959dd426689294296373d4cf3cb169d0eb7cc8028d6e28eda7a6f9c405ab242",
-      "ast_sha256": "0863dda72d839515b6c021ad06359386a916122bd9a06e40e8eacccfe6e07753"
+      "ast_sha256": "0863dda72d839515b6c021ad06359386a916122bd9a06e40e8eacccfe6e07753",
+      "executable_ast_sha256": "0863dda72d839515b6c021ad06359386a916122bd9a06e40e8eacccfe6e07753"
     },
     {
       "file": "policies.py",
       "symbol": "run_policy",
       "source": "spectral_cm_dip/policies.py",
       "source_sha256": "d959dd426689294296373d4cf3cb169d0eb7cc8028d6e28eda7a6f9c405ab242",
-      "ast_sha256": "5807811334f486e66cf16a88006b5ef49c3af424f938c68bcc4a9020a14eca0d"
+      "ast_sha256": "5807811334f486e66cf16a88006b5ef49c3af424f938c68bcc4a9020a14eca0d",
+      "executable_ast_sha256": "45c94ef96302c7fcf4f5755247e1f5d81a7a87cbe12b8e8b2a42c6deadd9aa94"
     },
     {
       "file": "baselines.py",
       "symbol": "group_squared_distances",
       "source": "ads_official.py",
       "source_sha256": "a2ca85b85b43ddae57db5b78b90f2ecc1b0c43fa098de3b35d3c21a71bf412d3",
-      "ast_sha256": "3b14463380794f2c65e261ebf9b1f69ee28a41817b11e3c33b3b50d6ab8e24d8"
+      "ast_sha256": "3b14463380794f2c65e261ebf9b1f69ee28a41817b11e3c33b3b50d6ab8e24d8",
+      "executable_ast_sha256": "4c7745a3f7946228314c0bef83a7ea282a6e187ab6841b8170805b0a4b8332d1"
     },
     {
       "file": "baselines.py",
       "symbol": "_group_index",
       "source": "ads_official.py",
       "source_sha256": "a2ca85b85b43ddae57db5b78b90f2ecc1b0c43fa098de3b35d3c21a71bf412d3",
-      "ast_sha256": "edd3ac41a2383a8cfab77e3774ddc3e5c67040b4ca13198793c087261941f997"
+      "ast_sha256": "edd3ac41a2383a8cfab77e3774ddc3e5c67040b4ca13198793c087261941f997",
+      "executable_ast_sha256": "25ede09f7733b6703b04fa62dfe6b7c8d3ffdf712ad406988879b753e3a13a9d"
     },
     {
       "file": "baselines.py",
       "symbol": "official_entropy_group_scores",
       "source": "ads_official.py",
       "source_sha256": "a2ca85b85b43ddae57db5b78b90f2ecc1b0c43fa098de3b35d3c21a71bf412d3",
-      "ast_sha256": "3c65bf6d3eac496220252b682ee7bf303bb9dea96ba07c73330ac489da7bc0a5"
+      "ast_sha256": "3c65bf6d3eac496220252b682ee7bf303bb9dea96ba07c73330ac489da7bc0a5",
+      "executable_ast_sha256": "2aebf148c941a832ff9cda741f6067087e4d9b2dfebcac920f7cc5012a5ac9ab"
     },
     {
       "file": "baselines.py",
       "symbol": "ADSConfig",
       "source": "publication_v2/matched_baselines.py",
       "source_sha256": "7ae05c1368d533d67bff02f9fa322e726905b37bfecee7d64bf5d13c0a0b5608",
-      "ast_sha256": "b8cedd1845dc6329576bb56d3f955ff9974411600d849fcddbfb3ec7c8018cbe"
+      "ast_sha256": "b8cedd1845dc6329576bb56d3f955ff9974411600d849fcddbfb3ec7c8018cbe",
+      "executable_ast_sha256": "77ef480d74b8620408749f8f4dbf173e19bf3b98e4ba02cbd9a2f1abce479c71"
     },
     {
       "file": "baselines.py",
       "symbol": "_validate_event_costs",
       "source": "publication_v2/matched_baselines.py",
       "source_sha256": "7ae05c1368d533d67bff02f9fa322e726905b37bfecee7d64bf5d13c0a0b5608",
-      "ast_sha256": "6c2509a05cf4c9fb564eaf5090bfd82f15fc0ae743a5f8c5a73501e76ba66c75"
+      "ast_sha256": "6c2509a05cf4c9fb564eaf5090bfd82f15fc0ae743a5f8c5a73501e76ba66c75",
+      "executable_ast_sha256": "6c2509a05cf4c9fb564eaf5090bfd82f15fc0ae743a5f8c5a73501e76ba66c75"
     },
     {
       "file": "baselines.py",
       "symbol": "_validate_phase_accounting",
       "source": "publication_v2/matched_baselines.py",
       "source_sha256": "7ae05c1368d533d67bff02f9fa322e726905b37bfecee7d64bf5d13c0a0b5608",
-      "ast_sha256": "b3cb3a64bebe21d67318bdfcf1c7a0f2f832dae753555e02d5dc7d563af03d5f"
+      "ast_sha256": "b3cb3a64bebe21d67318bdfcf1c7a0f2f832dae753555e02d5dc7d563af03d5f",
+      "executable_ast_sha256": "b3cb3a64bebe21d67318bdfcf1c7a0f2f832dae753555e02d5dc7d563af03d5f"
     },
     {
       "file": "baselines.py",
       "symbol": "adasense_select",
       "source": "publication_v2/matched_baselines.py",
       "source_sha256": "7ae05c1368d533d67bff02f9fa322e726905b37bfecee7d64bf5d13c0a0b5608",
-      "ast_sha256": "6fde0cf828c3e4f4e396f8c721a670f3edc9ee03efbd18e9a0f3ebe7dc0d35a6"
+      "ast_sha256": "6fde0cf828c3e4f4e396f8c721a670f3edc9ee03efbd18e9a0f3ebe7dc0d35a6",
+      "executable_ast_sha256": "f067e1f9f7c91b5a1005d7e1f1f4e7eef236420dd6f73faed011efd45b8a8144"
     },
     {
       "file": "baselines.py",
       "symbol": "ads_select",
       "source": "publication_v2/matched_baselines.py",
       "source_sha256": "7ae05c1368d533d67bff02f9fa322e726905b37bfecee7d64bf5d13c0a0b5608",
-      "ast_sha256": "0cc6f26238d6646c560ea9632c736d3dad51f79ed441929601c704e562524aa8"
+      "ast_sha256": "0cc6f26238d6646c560ea9632c736d3dad51f79ed441929601c704e562524aa8",
+      "executable_ast_sha256": "c5f97dc277897bd179ad3fa17a8028f14425fd66e009214a19e8a19d05b0b33c"
     },
     {
       "file": "baselines.py",
       "symbol": "DDRMPosteriorSampler",
       "source": "publication_v2/matched_baselines.py",
       "source_sha256": "7ae05c1368d533d67bff02f9fa322e726905b37bfecee7d64bf5d13c0a0b5608",
-      "ast_sha256": "61366b4c84097720b008c0911a76dc09e6ca6880f70a2482fd79189683ba997f"
+      "ast_sha256": "61366b4c84097720b008c0911a76dc09e6ca6880f70a2482fd79189683ba997f",
+      "executable_ast_sha256": "195ba2a7d188d6ebd657005571c0e43caf5fedc568bc52745d3da4e5068b04bf"
     },
     {
       "file": "baselines.py",
       "symbol": "ADSDPSTrajectory",
       "source": "publication_v2/matched_baselines.py",
       "source_sha256": "7ae05c1368d533d67bff02f9fa322e726905b37bfecee7d64bf5d13c0a0b5608",
-      "ast_sha256": "f4d6a0aa22b5c174063a9757dfd284836ad35cd6712692af58a60dd7bf4a8619"
+      "ast_sha256": "f4d6a0aa22b5c174063a9757dfd284836ad35cd6712692af58a60dd7bf4a8619",
+      "executable_ast_sha256": "8fd87f17426b22fe5bba664e64ad5e3de9a78e6923b827814eb40c8549d6ba94"
     },
     {
       "file": "rng.py",
       "symbol": "semantic_seed",
       "source": "publication_v2/rng.py",
       "source_sha256": "5e93d667895a26f139e20ebbdd5fb2fc95058e0d8d2d9bfd56039eb712e044ae",
-      "ast_sha256": "2c3994a3807ca47923ecba7a51023fbe293f718c42a3a1a2807b1f6f9bd6ff01"
+      "ast_sha256": "2c3994a3807ca47923ecba7a51023fbe293f718c42a3a1a2807b1f6f9bd6ff01",
+      "executable_ast_sha256": "7d06daed2630d8b3392c8c1286affd7506e8e5983689991b0975bf837651222b"
     },
     {
       "file": "rng.py",
       "symbol": "_cuda_device_indices",
       "source": "publication_v2/rng.py",
       "source_sha256": "5e93d667895a26f139e20ebbdd5fb2fc95058e0d8d2d9bfd56039eb712e044ae",
-      "ast_sha256": "8816235a66b14797493e9e51c7ae8c5533f9291374faaf7f2d42bd1b7e87c492"
+      "ast_sha256": "8816235a66b14797493e9e51c7ae8c5533f9291374faaf7f2d42bd1b7e87c492",
+      "executable_ast_sha256": "8816235a66b14797493e9e51c7ae8c5533f9291374faaf7f2d42bd1b7e87c492"
     },
     {
       "file": "rng.py",
       "symbol": "preserve_global_rng",
       "source": "publication_v2/rng.py",
       "source_sha256": "5e93d667895a26f139e20ebbdd5fb2fc95058e0d8d2d9bfd56039eb712e044ae",
-      "ast_sha256": "f9e2229f49c4add7704f8edba1ab4020c2ab0527f3d78f01296047bf1bdee183"
+      "ast_sha256": "f9e2229f49c4add7704f8edba1ab4020c2ab0527f3d78f01296047bf1bdee183",
+      "executable_ast_sha256": "4437fca81420437ad28be095e932e27400212701a780cda82559a3b5577d9ec4"
     },
     {
       "file": "metrics.py",
       "symbol": "_gaussian_window",
       "source": "publication_v2/metrics.py",
       "source_sha256": "ee08c887dfd6037def9dcfcbfba15183225bd71d08a5d65d912d3bde008fb5c6",
-      "ast_sha256": "0020b4475d5bd2badc2314f07496c0a59187c4277cc15bcf4def2887583c59c9"
+      "ast_sha256": "0020b4475d5bd2badc2314f07496c0a59187c4277cc15bcf4def2887583c59c9",
+      "executable_ast_sha256": "0020b4475d5bd2badc2314f07496c0a59187c4277cc15bcf4def2887583c59c9"
     },
     {
       "file": "metrics.py",
       "symbol": "local_ssim",
       "source": "publication_v2/metrics.py",
       "source_sha256": "ee08c887dfd6037def9dcfcbfba15183225bd71d08a5d65d912d3bde008fb5c6",
-      "ast_sha256": "8c2c28fc0adc531ca4459efd99715c846e046034c024f1575fc1bf460283c639"
+      "ast_sha256": "8c2c28fc0adc531ca4459efd99715c846e046034c024f1575fc1bf460283c639",
+      "executable_ast_sha256": "f39a554417906fa58daef0105b7c7460c22e94298da3ed53931e56d6e008f426"
     },
     {
       "file": "metrics.py",
       "symbol": "_psnr",
       "source": "publication_v2/metrics.py",
       "source_sha256": "ee08c887dfd6037def9dcfcbfba15183225bd71d08a5d65d912d3bde008fb5c6",
-      "ast_sha256": "0c195b505d635930a1341dbb0e1269a5757b46f68a1c0007256a3ec50caeed89"
+      "ast_sha256": "0c195b505d635930a1341dbb0e1269a5757b46f68a1c0007256a3ec50caeed89",
+      "executable_ast_sha256": "0c195b505d635930a1341dbb0e1269a5757b46f68a1c0007256a3ec50caeed89"
     },
     {
       "file": "metrics.py",
       "symbol": "_magnitude",
       "source": "publication_v2/metrics.py",
       "source_sha256": "ee08c887dfd6037def9dcfcbfba15183225bd71d08a5d65d912d3bde008fb5c6",
-      "ast_sha256": "045c652714fb3817b6b3ddf1fab851496ae8cc6f7c36e5c878e571852aebcc0e"
+      "ast_sha256": "045c652714fb3817b6b3ddf1fab851496ae8cc6f7c36e5c878e571852aebcc0e",
+      "executable_ast_sha256": "045c652714fb3817b6b3ddf1fab851496ae8cc6f7c36e5c878e571852aebcc0e"
     },
     {
       "file": "metrics.py",
       "symbol": "_central_crop",
       "source": "publication_v2/metrics.py",
       "source_sha256": "ee08c887dfd6037def9dcfcbfba15183225bd71d08a5d65d912d3bde008fb5c6",
-      "ast_sha256": "574d908831bd68ab58300505f5da684473d710ccba546cb8aa14f0f174f121fe"
+      "ast_sha256": "574d908831bd68ab58300505f5da684473d710ccba546cb8aa14f0f174f121fe",
+      "executable_ast_sha256": "574d908831bd68ab58300505f5da684473d710ccba546cb8aa14f0f174f121fe"
     },
     {
       "file": "metrics.py",
       "symbol": "mri_metrics",
       "source": "publication_v2/metrics.py",
       "source_sha256": "ee08c887dfd6037def9dcfcbfba15183225bd71d08a5d65d912d3bde008fb5c6",
-      "ast_sha256": "4923429bfe79f1b46e3f730d1adfb1c4fbb195e614a56f70054e0a61249b3f43"
+      "ast_sha256": "4923429bfe79f1b46e3f730d1adfb1c4fbb195e614a56f70054e0a61249b3f43",
+      "executable_ast_sha256": "16bd032b8beda320f151a697d0599ecae07f7902feb10f1a1aefa1381fd6a8cf"
     },
     {
       "file": "metrics.py",
       "symbol": "face_quick_metrics",
       "source": "quick_compare_v1/metrics.py",
       "source_sha256": "ad9d024e10bca3add979a12ab4ef195cef05dd1628cee2612485f47b393ab75d",
-      "ast_sha256": "51aff4f02a85f7c49723b7759845e265dd9ef1186ad8896622be263988e08b66"
+      "ast_sha256": "51aff4f02a85f7c49723b7759845e265dd9ef1186ad8896622be263988e08b66",
+      "executable_ast_sha256": "bc0f92ace6e475913b0239845823d98abdd287148eca7a1d2ea5ad6b5f985616"
     },
     {
       "file": "data.py",
       "symbol": "mri_target_from_kspace",
       "source": "publication_v2/data.py",
       "source_sha256": "d5b5b177268485fd56ac46a59ee022f37e031ecc568f5507e16a52155310cd07",
-      "ast_sha256": "a3757b73429cb6689959261bea1da1d327d4c0b8499dda825c74e07fefe16699"
+      "ast_sha256": "a3757b73429cb6689959261bea1da1d327d4c0b8499dda825c74e07fefe16699",
+      "executable_ast_sha256": "c234bc280f9321851c8ae76d9eb38b13aedc600e21b08b4d6f9e2844eaf60f11"
     },
     {
       "file": "data.py",
       "symbol": "load_mri_slice_deterministic",
       "source": "publication_v2/data.py",
       "source_sha256": "d5b5b177268485fd56ac46a59ee022f37e031ecc568f5507e16a52155310cd07",
-      "ast_sha256": "053a5be802f14bb0059fb08c68197eef7b8f8177a785c16ddd606ed3cad6d1f7"
+      "ast_sha256": "053a5be802f14bb0059fb08c68197eef7b8f8177a785c16ddd606ed3cad6d1f7",
+      "executable_ast_sha256": "7a92dce2f8ebc0c645f92a317502663609fff4e51f261b9fe1289aca85b5e6bf"
     },
     {
       "file": "mri_prior.py",
       "source": "mri_prior.py",
-      "file_sha256": "5e8679332895ecbff3898c3145e48d044bfccbecd8a40c06096cdbc6939101aa"
+      "file_sha256": "5e8679332895ecbff3898c3145e48d044bfccbecd8a40c06096cdbc6939101aa",
+      "executable_ast_sha256": "782b696af3b8accb362401449512bb9f123b42faafdad27003adecf85c17ec4d"
     },
     {
       "file": "data.py",
       "symbol": "tensor_sha256",
       "source": "publication_v2/data.py",
       "source_sha256": "d5b5b177268485fd56ac46a59ee022f37e031ecc568f5507e16a52155310cd07",
-      "ast_sha256": "cb80f44684e8f6aaff3d5197799d583c36c8c905c189509b465dac0d7e68593c"
+      "ast_sha256": "cb80f44684e8f6aaff3d5197799d583c36c8c905c189509b465dac0d7e68593c",
+      "executable_ast_sha256": "f20a067d36d70dd43b12c0c0601862537a003f82c5788e31b8d1761d6194a2f7"
     }
-  ]
+  ],
+  "fingerprint_scope": "Original source hashes are retained; executable AST hashes exclude documentation strings."
 }

@@ -6,22 +6,11 @@ MRI_NORMALIZING_FACTOR = 0.3040714
 
 
 def mri_target_from_kspace(kspace) -> torch.Tensor:
-    """Reconstruct one fastMRI slice reproducibly on any CPU.
+    """Transform one fastMRI slice into float32 real/imaginary channels.
 
-    `fastmri_data._load_slice` runs the inverse transform through
-    `torch.fft`, which on CPU calls MKL kernels selected from the host's
-    vector extensions. The same slice therefore comes out bit-different on
-    different machines -- measured at 2.6e-7 relative between a login node and
-    a compute node, which is float32 rounding and scientifically inert, but
-    enough to change a SHA-256 completely. That made a bound MRI tensor
-    identity verifiable only on the machine that wrote it, and it failed every
-    MRI shard of the first array.
-
-    NumPy's pocketfft has no such dispatch and computes in double precision,
-    so it is bit-identical across hosts. The controlled protocol loads through
-    it; `fastmri_data` is left alone so training and the earlier benchmarks
-    still reproduce their own bytes exactly.
-    """
+    Uses NumPy inverse FFT in double precision with the recorded shift and
+    normalization convention. The data loader checks the resulting tensor
+    against the sample manifest's hash."""
     import numpy as np
 
     stacked = np.stack([kspace.real, kspace.imag], axis=-1)

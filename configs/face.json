@@ -41,7 +41,7 @@
   "matched_baselines": {
     "adasense": {
       "deviations": [
-        "Selection-only port: AdaSense's own final DDRM estimate is discarded and every mask is reconstructed by this experiment's two common reconstructors.",
+        "Selection-only adapter: all methods use the common final reconstructor configured for this dataset.",
         "Acquisition happens on the shared five-round cadence with exact-cost conjugate-orbit groups rather than AdaSense's own schedule and action space.",
         "Settings are transcribed from the pinned upstream configs/celeba_hq.yml; the upstream code is not executed."
       ],
@@ -92,8 +92,8 @@
   },
   "architecture": {
     "id": "google/ddpm-celebahq-256",
-    "revision": "c6a0e54d1d23",
-    "manifest_sha256": "c6a0e54d1d235280bce7e40abae49b73c4de0011ddbf09d817ce39e848cc2fa7"
+    "manifest_sha256": "c6a0e54d1d235280bce7e40abae49b73c4de0011ddbf09d817ce39e848cc2fa7",
+    "snapshot_revision": "cd5c944777ea2668051904ead6cc120739b86c4d"
   },
   "dataset": {
     "dataset_id": "PhilSad/celeba-hq-1.5k",

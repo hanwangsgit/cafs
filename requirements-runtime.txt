@@ -1,0 +1,6 @@
+# Shared release dependencies; see REPRODUCIBILITY.md for environment scope.
+numpy==2.2.6
+diffusers==0.37.1
+datasets==4.8.4
+h5py==3.16.0
+Pillow==12.2.0

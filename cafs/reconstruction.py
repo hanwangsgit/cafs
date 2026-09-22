@@ -155,7 +155,7 @@ class CMTrace:
 
 
 class CMReconstructor:
-    """Call the historical corrected CM while recording its actual schedule."""
+    """Corrected CM predictions with per-step diagnostic and timing records."""
 
     def __init__(
         self,

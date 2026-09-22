@@ -1,13 +1,14 @@
-"""Check extracted original result records against the frozen paper tables.
+"""Recompute the paper tables from bundled measurements, without model execution.
 
-Usage: python verify_results.py FACE_ARCHIVE_DIRECTORY MRI_ARCHIVE_DIRECTORY
-Archives must be unpacked locally; datasets, weights and images are not needed.
+No arguments: Python standard library only; reads reproduction/paper_runs.csv.
+Optional FACE MRI arguments: additionally audit unpacked original archives.
 """
 import argparse
 import csv
 import hashlib
 import json
 import statistics
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -55,6 +56,9 @@ def verify(face, mri):
             budget = row['requested_budget']
             op, costs, target = initial[budget]
             for policy in row['policies']:
+                accounting = policy['acquisition']
+                assert accounting['nfe'] == (accounting['forward_sample_evaluations']
+                                             + accounting['backward_sample_evaluations'])
                 streams = seeds(domain, unit['unit_id'], budget, policy['policy_id'])
                 assert all(streams[k] == v for k, v in policy['seeds'].items())
                 assert policy['seed_action_ids'] == op.selected_group_ids.tolist()
@@ -88,6 +92,11 @@ def verify(face, mri):
         assert row['config'] == binding['protocol']
         assert row['config_sha256'] == digest(row['config'])
         assert row['unit'] == binding['units'][row['array']['unit_index']]
+    return {**verify_tables(records), 'checked_policy_histories': checked_policies,
+            'mri_package_files': package, 'mri_binding_sha256': binding_hash}
+
+
+def verify_tables(records):
     quality = []
     for expected in csv.DictReader((ROOT / 'reproduction/paper_metrics.csv').open()):
         domain, budget, policy = expected['domain'], float(expected['budget']), expected['policy']
@@ -104,7 +113,7 @@ def verify(face, mri):
     for expected in csv.DictReader((ROOT / 'reproduction/paper_efficiency.csv').open()):
         domain, policy = expected['domain'], expected['policy']
         values = [(r, p['acquisition']) for r in records[domain] for p in r['policies'] if p['policy_id'] == policy]
-        nfe = {a['forward_sample_evaluations'] + a['backward_sample_evaluations'] for _, a in values}
+        nfe = {a['nfe'] for _, a in values}
         assert nfe == {int(expected['sample_nfe'])}
         peak = max(a['peak_memory_bytes'] for _, a in values) / 2**30
         times = [a['wall_seconds'] for r, a in values if r['requested_budget'] == .1
@@ -115,19 +124,56 @@ def verify(face, mri):
         assert abs(median - float(expected['median_seconds'])) <= .000500001, (domain, policy, median)
         efficiency.append({'domain': domain, 'policy': policy, 'nfe': next(iter(nfe)),
                            'peak_gib': peak, 'timing_n': len(times), 'median_seconds': median})
-    return {'blocks': {'face': 90, 'mri': 90}, 'checked_policy_histories': checked_policies,
-            'mri_package_files': package,
-            'mri_binding_sha256': binding_hash, 'quality': quality, 'efficiency': efficiency}
+    return {'blocks': {domain: len(rows) for domain, rows in records.items()},
+            'quality': quality, 'efficiency': efficiency}
+
+
+def bundled_records():
+    """Read each archived case once, rejecting missing or duplicate measurements."""
+    grouped = {'face': {}, 'mri': {}}
+    seen = set()
+    with (ROOT / 'reproduction/paper_runs.csv').open() as stream:
+        for row in csv.DictReader(stream):
+            domain, unit, budget = row['domain'], row['unit_id'], float(row['budget'])
+            policy = row['policy']
+            key = (domain, unit, budget, policy)
+            assert key not in seen, ('duplicate measurement', key)
+            seen.add(key)
+            assert row['reconstructor'] == ('ddrm' if domain == 'face' else 'cm')
+            record = grouped[domain].setdefault((unit, budget), {
+                'requested_budget': budget, 'hardware': {'gpu': row['gpu']}, 'policies': []})
+            assert record['hardware']['gpu'] == row['gpu']
+            metrics = {k: float(row[k]) for k in ['psnr', 'ssim']}
+            if domain == 'mri':
+                metrics['nmse'] = float(row['nmse'])
+            record['policies'].append({'policy_id': policy,
+                'reconstructions': [{'reconstructor_id': row['reconstructor'], 'metrics': metrics}],
+                'acquisition': {'nfe': int(row['nfe']), 'wall_seconds': float(row['wall_seconds']),
+                                'peak_memory_bytes': int(row['peak_memory_bytes'])}})
+    expected = set()
+    for domain in grouped:
+        units = json.loads((ROOT / f'reproduction/{domain}_samples.json').read_text())
+        config = json.loads((ROOT / f'configs/{domain}.json').read_text())
+        expected.update((domain, u['unit_id'], b, p) for u in units
+                        for b in config['budgets'] for p in config['policies'])
+    assert seen == expected, 'Recorded measurements do not cover the paper grid'
+    return {domain: list(rows.values()) for domain, rows in grouped.items()}
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('face', type=Path)
-    parser.add_argument('mri', type=Path)
+    parser.add_argument('face', type=Path, nargs='?')
+    parser.add_argument('mri', type=Path, nargs='?')
     args = parser.parse_args()
     if not __debug__:
         parser.error('Run without -O so verification assertions remain enabled')
-    print(json.dumps(verify(args.face, args.mri), indent=2))
+    if (args.face is None) != (args.mri is None):
+        parser.error('Provide both archive directories, or neither')
+    report = verify_tables(bundled_records()) if args.face is None else verify(args.face, args.mri)
+    print(f"Verified {sum(report['blocks'].values())} blocks, "
+          f"{len(report['quality'])} quality rows, and {len(report['efficiency'])} efficiency rows.",
+          file=sys.stderr)
+    print(json.dumps(report, indent=2))
 
 
 if __name__ == '__main__':

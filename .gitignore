@@ -12,3 +12,4 @@ results/
 *.safetensors
 *.h5
 .env
+verified-results.json

@@ -1,18 +1,8 @@
-"""MRI diffusion prior: AdaSense's fastMRI knee teacher, adapted to our stack.
+"""Two-channel fastMRI diffusion network adapted from DDIM through AdaSense.
 
-The `Model` UNet below (through `forward`) is vendored verbatim from
-https://github.com/noamelata/AdaSense (models/diffusion.py), the ermongroup
-DDIM architecture. The checkpoint `fmri.ckpt` (Google Drive link in their
-README) is an eps-prediction DDPM trained on fastMRI singlecoil knee,
-2-channel complex images at 640x368, linear beta schedule 1e-4..0.02 x1000
--- the same discrete schedule family as our face teacher, which is what
-makes CM distillation warm-start possible.
-
-Our additions at the bottom of the file:
-  FMRI_CONFIG            the fmri.yml model config as nested namespaces
-  mri_alphas_cumprod()   the (1000,) alpha-bar schedule
-  EpsWrapper             makes Model return `.sample` like a diffusers UNet
-  load_mri_teacher()     checkpoint -> wrapped eval-mode teacher + schedule
+The architecture follows AdaSense models/diffusion.py, with rectangular MRI
+geometry, an epsilon-output wrapper, checkpoint loading, and optional gradient
+checkpointing. DDIM attribution is retained in LICENSES/DDIM-MIT.txt.
 """
 
 import math
@@ -232,8 +222,7 @@ class Model(nn.Module):
         self.num_res_blocks = num_res_blocks
         self.resolution = resolution
         self.in_channels = in_channels
-        # Opt-in only. Off, `_run_block` dispatches the vendored call
-        # unchanged, so every existing caller keeps its exact bytes.
+        # Optional activation recomputation for memory-intensive ADS gradients.
         self.gradient_checkpointing = False
 
         # timestep embedding
@@ -323,14 +312,7 @@ class Model(nn.Module):
                                         padding=1)
 
     def _run_block(self, block, *args):
-        """Call one res/attn block, recomputing it in backward if asked.
-
-        Storing every activation of this net for a 16-particle batch at
-        640x368 needs ~78 GiB, which does not fit an 80 GB A100; the level-0
-        blocks alone hold most of it. Recomputation trades ~1/3 more compute
-        for that memory and leaves the gradient mathematically identical, so
-        ADS keeps its single joint particle-batch L2 norm.
-        """
+        """Recompute residual/attention blocks during backward when enabled."""
         if self.gradient_checkpointing and torch.is_grad_enabled():
             return checkpoint(block, *args, use_reentrant=False)
         return block(*args)
@@ -420,11 +402,7 @@ class EpsOutput:
 
 
 class EpsWrapper(nn.Module):
-    """Give the DDIM `Model` the diffusers calling convention.
-
-    cgmap_reconstruction / adaptive_sensing / the distillation loop all call
-    `unet(x, t).sample`; the vendored Model returns a raw eps tensor.
-    """
+    """Expose epsilon predictions through the diffusers `.sample` interface."""
 
     def __init__(self, model: nn.Module):
         super().__init__()

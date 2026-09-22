@@ -23,15 +23,9 @@
   The license text is retained in `LICENSES/Apache-2.0.txt`; checkpoint origins
   and modifications are recorded in `CHECKPOINT_NOTICE.md`.
 
-A standalone license was not found on the inspected AdaSense repository page;
-fetching its pinned `LICENSE` and the ADS pinned `LICENSE` did not succeed.
-The DDIM MIT notice covers its upstream architecture, but is not a blanket
-license for other authors' modifications. Confirm the provenance/redistribution
-rights of any AdaSense-derived changes before publishing. Original CAFS code is
-licensed under the [MIT License](LICENSE). Third-party material retains its own
-copyright and license terms; the CAFS license does not relicense that material.
-The MRI teacher's README provides a download link but no checkpoint
-redistribution license was found. The MRI student is initialized from a copy
-of that teacher, so its redistribution terms also require clarification.
-See [checkpoint attribution and scope](CHECKPOINT_NOTICE.md). No datasets or
-checkpoint binaries are included in Git.
+Original CAFS code is licensed under [MIT](LICENSE). The DDIM notice is retained
+for the adapted MRI architecture. The matched selectors are the research
+project's implementations; upstream baseline repositories are cited for their
+methods and settings. The original TensorFlow/Keras ADS implementation is not
+bundled. Checkpoint-specific terms and their current evidence are documented
+once in [CHECKPOINT_NOTICE.md](CHECKPOINT_NOTICE.md).

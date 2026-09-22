@@ -183,16 +183,10 @@ def hermitian_symmetrize(freq_mask: torch.Tensor) -> torch.Tensor:
 
 @lru_cache(maxsize=16)
 def _fourier_orbit_tables(height: int, width: int, channels: int, device_key: str):
-    """Orbit lookup tables for an ``H x W`` real-image FFT, cached per shape/device.
+    """Cache conjugate-orbit membership, sizes, and costs for one geometry.
 
-    Rebuilding these dominated oracle runs: every ``FourierOp`` construction walked
-    all ~32k orbits in Python, and the oracle constructs one operator per candidate,
-    so this cost roughly ten times the GPU reconstruction it fed. The tables depend
-    only on the shape and channel count, never on the mask.
-
-    Returns the orbit tuple, an id lookup, the orbit id owning each flat bin, the
-    number of bins per orbit, and the per-orbit cost.
-    """
+    Returns the immutable orbit dictionary, ID lookup, per-bin orbit IDs,
+    orbit sizes, and measurement costs on the requested device."""
     groups = real_fourier_orbits(height, width, channels)
     orbit_of_bin = torch.empty(height * width, dtype=torch.long)
     orbit_size = torch.zeros(len(groups), dtype=torch.long)

@@ -6,6 +6,13 @@ from summarize import summarize
 
 
 class SummaryChecks(unittest.TestCase):
+    def test_bundled_measurements_reproduce_archived_tables(self):
+        from verify_results import ROOT, bundled_records, verify_tables
+        report=verify_tables(bundled_records())
+        expected=json.loads((ROOT/'reproduction/verified_tables.json').read_text())
+        for field in ['blocks','quality','efficiency']:
+            self.assertEqual(report[field],expected[field])
+
     def test_scope_and_duplicates(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory)
